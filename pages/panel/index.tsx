@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import LayoutM from "../../components/LayoutM";
 import { Spin } from "antd";
-import { gql, useSubscription } from "@apollo/client";
+import { gql, useQuery, useSubscription } from "@apollo/client";
 import { CardPanel } from "../../components/styledComponents/components";
 
 // const CardPanel = styled.div`
@@ -12,7 +12,7 @@ import { CardPanel } from "../../components/styledComponents/components";
 // `;
 
 const GET_CODES = gql`
-  subscription {
+  query {
     code {
       type
       uid
@@ -21,7 +21,7 @@ const GET_CODES = gql`
 `;
 
 const Panel = () => {
-  const { loading, error, data } = useSubscription(GET_CODES);
+  const { loading, error, data } = useQuery(GET_CODES);
 
   if (loading) {
     return (
@@ -31,6 +31,10 @@ const Panel = () => {
         </CardPanel>
       </LayoutM>
     );
+  }
+
+  if (error) {
+    console.log(error);
   }
   if (!loading) {
     return (

@@ -1,5 +1,5 @@
 {
-  "name": "with-typescript",
+  "name": "front-samsung",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
@@ -8,10 +8,15 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@ant-design/charts": "^1.0.1",
+    "@antv/path-util": "^2.0.8",
     "@apollo/client": "^3.2.0",
+    "@nivo/bar": "^0.63.1",
+    "@nivo/pie": "^0.63.1",
     "antd": "^4.6.5",
     "axios": "^0.20.0",
     "cookie": "^0.4.1",
+    "dayjs": "^1.9.4",
     "graphql": "^15.3.0",
     "isomorphic-ws": "^4.0.1",
     "js-cookie": "^2.2.1",
@@ -19,6 +24,7 @@
     "next": "latest",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-highlight-words": "^0.16.0",
     "react-hook-form": "^6.8.4",
     "styled-components": "^5.2.0",
     "subscriptions-transport-ws": "^0.9.18",

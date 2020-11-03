@@ -6,7 +6,7 @@ import { Table } from "antd";
 import selectedField from "../../../utils/selectedPanel";
 import { useRouter } from "next/router";
 import { CardPanel } from "../../../components/styledComponents/components";
-import { GET_PRODUCTS } from "../../../utils/graphqlQSM/queries";
+import { GET_LINKS } from "../../../utils/graphqlQSM/queries";
 import Link from "next/link";
 import { LoaderInDash } from "../../../components/LoaderInDash";
 import getColumnSearchProps from "../../../utils/GetColumnsSearchProps";
@@ -26,7 +26,7 @@ const Produkty = () => {
     setSearchedColumn
   );
 
-  const { loading, error, data } = useQuery(GET_PRODUCTS);
+  const { loading, error, data } = useQuery(GET_LINKS);
 
   const columns = [
     {
@@ -36,10 +36,27 @@ const Produkty = () => {
       ...getColumnSearchProp("id"),
     },
     {
+      title: "Firma",
+      dataIndex: "company",
+      key: "company",
+      ...getColumnSearchProp("company"),
+    },
+    {
       title: "Produkt",
-      dataIndex: "name",
-      key: "name",
-      ...getColumnSearchProp("name"),
+      dataIndex: "product",
+      key: "product",
+      ...getColumnSearchProp("product"),
+    },
+    {
+      title: "Url",
+      dataIndex: "url",
+      key: "url",
+      ...getColumnSearchProp("url"),
+      render: (linkUrl: string) => (
+        <span>
+          <a href={linkUrl}>{linkUrl}</a>
+        </span>
+      ),
     },
     {
       title: "Zasób",
@@ -47,7 +64,7 @@ const Produkty = () => {
       key: "id",
       render: (text: string) => (
         <span>
-          <Link href={`/lista/produkty/${text}`}>
+          <Link href={`/lista/linki/${text}`}>
             <a>Więcej&nbsp;&gt;</a>
           </Link>
         </span>
@@ -56,7 +73,7 @@ const Produkty = () => {
   ];
 
   if (loading) {
-    return <LoaderInDash selectedField={selectedField.LISTA_ODDZIALY} />;
+    return <LoaderInDash selectedField={selectedField.LISTA_LINKI} />;
   }
 
   if (error) {
@@ -65,18 +82,20 @@ const Produkty = () => {
   }
 
   if (!loading) {
-    const dataSourcev2 = data.product.map((product: any) => ({
-      name: product.name,
-      id: product.id,
-      key: `${product.id}`,
+    const dataSource = data.group.map((item: any) => ({
+      id: item.link.id,
+      product: item.product.name,
+      company: item.location.company.name,
+      url: item.link.url,
+      key: `${item.link.id}`,
     }));
 
     // console.log(dataSourcev2);
     return (
-      <LayoutM selectedField={selectedField.LISTA_PRODUKTY}>
-        <CardPanel>
-          <h1>Produkty</h1>
-          <Table dataSource={dataSourcev2} columns={columns} />
+      <LayoutM selectedField={selectedField.LISTA_LINKI}>
+        <CardPanel style={{ maxWidth: "800px" }}>
+          <h1>Linki</h1>
+          <Table dataSource={dataSource} columns={columns} />
         </CardPanel>
       </LayoutM>
     );

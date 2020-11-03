@@ -44,7 +44,6 @@ const Oddzial = () => {
       <LayoutM selectedField={selectedField.DODAJ_BRANCH}>
         <CardPanel>
           <h1>Dodaj nowy oddział</h1>
-
           <FormFlex
             onSubmit={handleSubmit((args) => {
               const branch = {

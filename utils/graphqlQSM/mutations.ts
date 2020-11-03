@@ -27,3 +27,12 @@ export const ADD_COMPANY = gql`
     }
   }
 `;
+
+export const UPDATE_LINK_URL = gql`
+  mutation UpdateLink($id: Int!, $url: String!) {
+    update_link_by_pk(pk_columns: { id: $id }, _set: { url: $url }) {
+      id
+      url
+    }
+  }
+`;

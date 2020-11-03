@@ -5,6 +5,8 @@ export enum SelectedPanel {
   LISTA_PRODUKTY = 6,
   LISTA_ODDZIALY = 7,
   LISTA_FIRMY = 8,
+  LISTA_LINKI = 10,
+  RAPORTY = 2,
 }
 
 export default SelectedPanel;

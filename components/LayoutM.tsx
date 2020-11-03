@@ -1,7 +1,7 @@
 import React, { useState, ReactNode } from "react";
 import Link from "next/link";
 import { Layout, Menu, Breadcrumb } from "antd";
-import { Typography } from "antd";
+
 import {
   PlusOutlined,
   PieChartOutlined,
@@ -9,9 +9,11 @@ import {
   TeamOutlined,
   DesktopOutlined,
 } from "@ant-design/icons";
+import { useRouter } from "next/router";
+import { Typography } from "antd";
+const { Title } = Typography;
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
-const { Title } = Typography;
 
 type TitleFontSize = 1 | 2 | 3 | 4;
 type IProps = {
@@ -22,12 +24,13 @@ type IProps = {
 const LayoutM = ({ children, selectedField }: IProps) => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
   const [level, setLevel] = useState<TitleFontSize>(1);
+  const router = useRouter();
 
+  router.pathname;
   const handleOnCollapse = () => {
     setCollapsed(!collapsed);
     setLevel(level == 1 ? 4 : 1);
   };
-
   return (
     <>
       <Layout style={{ minHeight: "100vh" }}>
@@ -56,7 +59,6 @@ const LayoutM = ({ children, selectedField }: IProps) => {
             <Menu.Item key="1" icon={<DesktopOutlined />}>
               <Link href="/">Zarządzaj</Link>
             </Menu.Item>
-
             <Menu.Item key="9" icon={<FileOutlined />}>
               <Link href="/panel">Panel</Link>
             </Menu.Item>
@@ -81,10 +83,13 @@ const LayoutM = ({ children, selectedField }: IProps) => {
               <Menu.Item key="8">
                 <Link href="/lista/firmy">Firmy</Link>
               </Menu.Item>
+              <Menu.Item key="10">
+                <Link href="/lista/linki">Linki</Link>
+              </Menu.Item>
             </SubMenu>
 
             <Menu.Item key="2" icon={<PieChartOutlined />}>
-              Raporty
+              <Link href="/raporty">Raporty</Link>
             </Menu.Item>
           </Menu>
         </Sider>

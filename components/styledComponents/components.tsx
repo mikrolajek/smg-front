@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CardPanel = styled.div`
   background-color: white;
-  padding: 50px;
+  padding: 35px 45px;
   border-radius: 5px;
   max-width: 400px;
   margin: 10px;
