@@ -1,10 +1,10 @@
 import React from "react";
 import { PieDatum } from "@nivo/pie";
-import { Typography } from "antd";
+// import { Typography } from "antd";
 import { DocumentNode, useQuery } from "@apollo/client";
 import { LoaderNoDash } from "../../components/LoaderInDash";
 import { BarDiagramCard } from "./DiagramBarCard";
-const { Title } = Typography;
+// const { Title } = Typography;
 
 interface IDiagramComboProps {
   title: string;
@@ -28,7 +28,7 @@ export const DiagramComboBar = ({
     popularity: ITagPopularity[];
   };
 
-  const { loading, error, data } = useQuery<tagPop>(gqlQuery);
+  const { loading, data } = useQuery<tagPop>(gqlQuery);
 
   const fillData = (data: tagPop | undefined) => {
     if (data === undefined) {

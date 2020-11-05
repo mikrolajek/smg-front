@@ -1,10 +1,10 @@
 import React from "react";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import LayoutM from "../../../components/LayoutM";
-import { Select, Button, Spin, Form, Input } from "antd";
+import { Button, Input } from "antd";
 import selectedField from "../../../utils/selectedPanel";
-import { GET_COMPANIES } from "../../../utils/graphqlQSM/queries";
-import { useRouter } from "next/router";
+// import { GET_COMPANIES } from "../../../utils/graphqlQSM/queries";
+// import { useRouter } from "next/router";
 import { useForm, Controller } from "react-hook-form";
 import { PlusCircleFilled } from "@ant-design/icons";
 import { ADD_COMPANY } from "../../../utils/graphqlQSM/mutations";
@@ -15,7 +15,8 @@ import {
 } from "../../../components/styledComponents/components";
 
 const Firme = () => {
-  const { control, handleSubmit, errors } = useForm();
+  const { control, handleSubmit } = useForm();
+  // const { control, handleSubmit, errors } = useForm();
   const [addCompany] = useMutation(ADD_COMPANY);
   //, {variables: {branch: branch}}
 

@@ -1,5 +1,5 @@
 import { PieDatum, ResponsivePie } from "@nivo/pie";
-import { ResponsiveBar } from "@nivo/bar";
+// import { ResponsiveBar } from "@nivo/bar";
 import Title from "antd/lib/typography/Title";
 import React from "react";
 import styled from "styled-components";

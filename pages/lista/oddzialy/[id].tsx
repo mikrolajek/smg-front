@@ -2,11 +2,10 @@ import { useRouter } from "next/router";
 import React from "react";
 import LayoutM from "../../../components/LayoutM";
 import selectedPanel from "../../../utils/selectedPanel";
-import GetProductLinks from "./components/GetProductLinks";
-import GetSingleProductCodes from "./components/GetSingleProductCodes";
-import GetSingleProductLocations, {
-  GetSingleLocationProducts,
-} from "./components/GetSingleProductLocatons";
+// import GetProductLinks from "./components/GetProductLinks";
+// import GetSingleProductCodes from "./components/GetSingleProductCodes";
+// import GetSingleProductLocations,
+import { GetSingleLocationProducts } from "./components/GetSingleProductLocatons";
 import { CardPanel } from "../../../components/styledComponents/components";
 import { useQuery } from "@apollo/client";
 import { GET_SINGLE_LOCATION } from "../../../utils/graphqlQSM/queries";

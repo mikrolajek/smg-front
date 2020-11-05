@@ -3,11 +3,10 @@ import App from "next/app";
 import "antd/dist/antd.css";
 import "../styles/global.css";
 import { ApolloProvider } from "@apollo/client";
-import createApolloClient, {
-  initializeApollo,
-  useApollo,
-} from "../lib/apolloClient";
-import { createContext, useEffect, useState } from "react";
+import createApolloClient from // initializeApollo,
+// useApollo,
+"../lib/apolloClient";
+// import { createContext, useEffect, useState } from "react";
 import Cookies from "cookies";
 
 export default function MyApp({ Component, pageProps }: AppProps) {

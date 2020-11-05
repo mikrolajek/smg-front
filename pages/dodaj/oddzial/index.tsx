@@ -1,7 +1,7 @@
 import React from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import LayoutM from "../../../components/LayoutM";
-import { Select, Button, Spin, Form, Input } from "antd";
+import { Select, Button, Spin, Input } from "antd";
 import selectedField from "../../../utils/selectedPanel";
 import { GET_COMPANIES } from "../../../utils/graphqlQSM/queries";
 import { useRouter } from "next/router";
@@ -15,7 +15,7 @@ import {
 } from "../../../components/styledComponents/components";
 
 const Oddzial = () => {
-  const { control, handleSubmit, errors } = useForm();
+  const { control, handleSubmit } = useForm();
   const { loading, error, data } = useQuery(GET_COMPANIES);
   const [addBranch] = useMutation(ADD_BRANCH);
   //, {variables: {branch: branch}}

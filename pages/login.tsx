@@ -1,4 +1,4 @@
-import { useApolloClient } from "@apollo/client";
+// import { useApolloClient } from "@apollo/client";
 import { Button, Input } from "antd";
 import Axios from "axios";
 import React, { useState } from "react";
@@ -10,7 +10,7 @@ import {
   FormFlex,
   FormItem,
 } from "../components/styledComponents/components";
-import { PlusCircleFilled, LoginOutlined } from "@ant-design/icons";
+import { LoginOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 
 const CenterContent = styled.div`
@@ -40,7 +40,7 @@ const Login = () => {
   // const client = useApolloClient();
   const router = useRouter();
   const [error, setError] = useState<string | null>();
-  const { control, register, handleSubmit } = useForm<Inputs>();
+  const { control, handleSubmit } = useForm<Inputs>();
 
   // const { loading, error, data } = useQuery(GET_COMPANIES);
   // const [addProduct] = useMutation(ADD_PRODUCT);
@@ -111,6 +111,7 @@ const Login = () => {
           <FormItem style={{ display: "flex", justifyContent: "flex-end" }}>
             <div></div>
             <Controller
+              //@ts-ignore
               name="submitButton"
               control={control}
               style={{ width: "100%", marginTop: "5px" }}
@@ -122,6 +123,7 @@ const Login = () => {
               defaultValue={null}
             />
           </FormItem>
+          {error && <p>{error}</p>}
         </FormFlex>
       </CardPanel>
     </CenterContent>

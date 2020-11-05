@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@apollo/client";
-import { Button, Input, Modal, Table } from "antd";
+import { Button, Input, Modal } from "antd";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { LoaderNoDash } from "../../../../components/LoaderInDash";
@@ -17,7 +17,8 @@ interface IGetSingleLinkProps {
 }
 
 export const GetSingleLink = ({ id, title }: IGetSingleLinkProps) => {
-  const [changeUrl, mutationObject] = useMutation(UPDATE_LINK_URL);
+  const [changeUrl] = useMutation(UPDATE_LINK_URL);
+  // const [changeUrl, mutationObject] = useMutation(UPDATE_LINK_URL);
   const { loading, error, data } = useQuery(GET_SINGLE_LINK, {
     variables: { id: id },
   });

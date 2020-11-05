@@ -66,6 +66,7 @@ export const EditableTable = () => {
   const isEditing = (record: Item) => record.key === editingKey;
 
   const edit = (record: Item) => {
+    //@ts-ignore
     form.setFieldsValue({ name: "", age: "", address: "", ...record });
     setEditingKey(record.key);
   };
@@ -127,6 +128,7 @@ export const EditableTable = () => {
             </Popconfirm>
           </span>
         ) : (
+          //@ts-ignore
           <a disabled={editingKey !== ""} onClick={() => edit(record)}>
             Edit
           </a>
@@ -170,3 +172,4 @@ export const EditableTable = () => {
     </Form>
   );
 };
+export default EditableTable;

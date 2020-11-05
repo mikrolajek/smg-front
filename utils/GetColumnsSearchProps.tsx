@@ -1,3 +1,4 @@
+//@ts-ignore
 import Highlighter from "react-highlight-words";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Input, Space } from "antd";

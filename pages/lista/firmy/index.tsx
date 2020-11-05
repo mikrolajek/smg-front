@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import LayoutM from "../../../components/LayoutM";
-import { Spin, Table } from "antd";
+import { Table } from "antd";
 import selectedField from "../../../utils/selectedPanel";
 import { CardPanel } from "../../../components/styledComponents/components";
 import { useRouter } from "next/router";

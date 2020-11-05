@@ -5,10 +5,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { LoaderNoDash } from "../../../../components/LoaderInDash";
 import { CardPanel } from "../../../../components/styledComponents/components";
-import {
-  GET_SINGLE_LINK_CODES,
-  GET_SINGLE_PRODUCT_CODES,
-} from "../../../../utils/graphqlQSM/queries";
+import { GET_SINGLE_LINK_CODES } from "../../../../utils/graphqlQSM/queries";
 
 interface IProps {
   id: string | string[];

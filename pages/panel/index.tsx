@@ -1,8 +1,7 @@
 import React from "react";
-import styled from "styled-components";
 import LayoutM from "../../components/LayoutM";
 import { Spin } from "antd";
-import { gql, useQuery, useSubscription } from "@apollo/client";
+import { gql, useQuery } from "@apollo/client";
 import { CardPanel } from "../../components/styledComponents/components";
 
 // const CardPanel = styled.div`

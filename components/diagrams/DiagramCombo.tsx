@@ -22,7 +22,7 @@ export const DiagramCombo = ({ title, gqlQuery }: IDiagramComboProps) => {
     popularity: ITagPopularity[];
   };
 
-  const { loading, error, data } = useQuery<tagPop>(gqlQuery);
+  const { loading, data } = useQuery<tagPop>(gqlQuery);
 
   const fillData = (data: tagPop | undefined) => {
     if (data === undefined) {

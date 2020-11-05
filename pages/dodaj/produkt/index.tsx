@@ -1,7 +1,7 @@
 import React from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import LayoutM from "../../../components/LayoutM";
-import { Select, Button, Spin, Form, Input } from "antd";
+import { Button, Spin, Input } from "antd";
 import selectedField from "../../../utils/selectedPanel";
 import { GET_COMPANIES } from "../../../utils/graphqlQSM/queries";
 import { useRouter } from "next/router";
@@ -15,8 +15,8 @@ import {
 } from "../../../components/styledComponents/components";
 
 const Produkt = () => {
-  const { control, handleSubmit, errors } = useForm();
-  const { loading, error, data } = useQuery(GET_COMPANIES);
+  const { control, handleSubmit } = useForm();
+  const { loading, error } = useQuery(GET_COMPANIES);
   const [addProduct] = useMutation(ADD_PRODUCT);
   //, {variables: {branch: branch}}
   if (loading) {

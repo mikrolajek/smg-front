@@ -9,8 +9,8 @@ import { CardPanel } from "../../../components/styledComponents/components";
 import { LoaderInDash } from "../../../components/LoaderInDash";
 import Link from "next/link";
 import getColumnSearchProps from "../../../utils/GetColumnsSearchProps";
-import { Typography } from "antd";
-const { Title } = Typography;
+// import { Typography } from "antd";
+// const { Title } = Typography;
 
 const Oddzialy = () => {
   // const CardPanel = styled.div`

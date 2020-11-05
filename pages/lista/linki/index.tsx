@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 import { useQuery } from "@apollo/client";
 import LayoutM from "../../../components/LayoutM";
 import { Table } from "antd";
@@ -11,9 +11,9 @@ import Link from "next/link";
 import { LoaderInDash } from "../../../components/LoaderInDash";
 import getColumnSearchProps from "../../../utils/GetColumnsSearchProps";
 
-const CenterFlexItem = styled.div`
-  margin: auto;
-`;
+// const CenterFlexItem = styled.div`
+//   margin: auto;
+// `;
 
 const Produkty = () => {
   const [searchText, setSearchText] = useState<string>("");
