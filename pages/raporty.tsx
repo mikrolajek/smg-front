@@ -1,5 +1,5 @@
 import React from "react";
-import LayoutM from "../components/LayoutM";
+import LayoutM from "../components/universal-components/LayoutM";
 import selectedField from "../utils/selectedPanel";
 import {
   GET_COMPANY_ENGAGEMENT,

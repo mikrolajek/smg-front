@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
 import React from "react";
-import LayoutM from "../../../components/LayoutM";
+import LayoutM from "../../../components/universal-components/LayoutM";
 import selectedPanel from "../../../utils/selectedPanel";
-import GetSingleLinkCodes from "./components/GetSingleLinkCodes";
-import { GetSingleLink } from "./components/GetSingleLink";
-import GetSingleLinkProducts from "./components/GetSingleLinkProducts";
-import GetLSingleLinkLocations from "./components/GetLSingleLinkLocations";
+import GetSingleLinkCodes from "../../../components/lista/linki/components/GetSingleLinkCodes";
+import { GetSingleLink } from "../../../components/lista/linki/components/GetSingleLink";
+import GetSingleLinkProducts from "../../../components/lista/linki/components/GetSingleLinkProducts";
+import GetLSingleLinkLocations from "../../../components/lista/linki/components/GetLSingleLinkLocations";
 
 export const Product = () => {
   const router = useRouter();

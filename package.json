@@ -5,12 +5,18 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "codegen": "graphql-codegen --config codegen.js",
     "type-check": "tsc"
   },
   "dependencies": {
     "@ant-design/charts": "^1.0.1",
     "@antv/path-util": "^2.0.8",
     "@apollo/client": "^3.2.0",
+    "@graphql-codegen/cli": "^1.19.1",
+    "@graphql-codegen/introspection": "^1.18.0",
+    "@graphql-codegen/typescript": "^1.17.11",
+    "@graphql-codegen/typescript-operations": "^1.17.9",
+    "@graphql-codegen/typescript-react-apollo": "^2.1.1",
     "@nivo/bar": "^0.63.1",
     "@nivo/pie": "^0.63.1",
     "antd": "^4.6.5",

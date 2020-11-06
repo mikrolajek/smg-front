@@ -1,8 +1,10 @@
 import React from "react";
-import LayoutM from "../../components/LayoutM";
+import LayoutM from "../../components/universal-components/LayoutM";
 import { Spin } from "antd";
 import { gql, useQuery } from "@apollo/client";
 import { CardPanel } from "../../components/styledComponents/components";
+import { Query_Root } from "../../src/generated/graphql";
+import Head from "next/head";
 
 // const CardPanel = styled.div`
 //   background-color: white;
@@ -20,15 +22,25 @@ const GET_CODES = gql`
 `;
 
 const Panel = () => {
-  const { loading, error, data } = useQuery(GET_CODES);
+  const { loading, error, data } = useQuery<Query_Root>(GET_CODES);
+
+  if (error) {
+    console.log(error);
+    return <h1>Error, check console</h1>;
+  }
 
   if (loading) {
     return (
-      <LayoutM selectedField={1}>
-        <CardPanel>
-          <Spin size="large" />
-        </CardPanel>
-      </LayoutM>
+      <>
+        <Head>
+          <title>Panel </title>
+        </Head>
+        <LayoutM selectedField={1}>
+          <CardPanel>
+            <Spin size="large" />
+          </CardPanel>
+        </LayoutM>
+      </>
     );
   }
 
@@ -37,16 +49,21 @@ const Panel = () => {
   }
   if (!loading) {
     return (
-      <LayoutM selectedField={1}>
-        <CardPanel>
-          {data.code.map((item: any) => (
-            <>
-              <h1>{item.type}</h1>
-              <h2>{item.uid}</h2>
-            </>
-          ))}
-        </CardPanel>
-      </LayoutM>
+      <>
+        <Head>
+          <title>Panel </title>
+        </Head>
+        <LayoutM selectedField={1}>
+          <CardPanel>
+            {data?.code.map((item) => (
+              <>
+                <h1>{item.type}</h1>
+                <h2>{item.uid}</h2>
+              </>
+            ))}
+          </CardPanel>
+        </LayoutM>
+      </>
     );
   }
   // data.code.map((item: any) => console.log(item));

@@ -1,6 +1,6 @@
 import React from "react";
 import { useMutation, useQuery } from "@apollo/client";
-import LayoutM from "../../../components/LayoutM";
+import LayoutM from "../../../components/universal-components/LayoutM";
 import { Select, Button, Spin, Input } from "antd";
 import selectedField from "../../../utils/selectedPanel";
 import { GET_COMPANIES } from "../../../utils/graphqlQSM/queries";
@@ -50,7 +50,7 @@ const Oddzial = () => {
                 id_company: args.id_company,
                 address: args.address,
               };
-              addBranch({ variables: { branch: branch } });
+              addBranch({ variables: { location: branch } });
               console.log("Wszystko git sprawdz baze");
             })}>
             <FormItem>

@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 export const GET_COMPANIES = gql`
-  query {
+  {
     company {
       id
       name
@@ -10,7 +10,7 @@ export const GET_COMPANIES = gql`
 `;
 
 export const GET_LOCATIONS = gql`
-  query {
+  {
     location {
       id
       address
@@ -23,7 +23,7 @@ export const GET_LOCATIONS = gql`
 `;
 
 export const GET_PRODUCTS = gql`
-  query {
+  {
     product {
       id
       name
@@ -32,7 +32,7 @@ export const GET_PRODUCTS = gql`
 `;
 
 export const GET_LINKS = gql`
-  query {
+  {
     group(distinct_on: id_link) {
       id
       location {
@@ -53,7 +53,7 @@ export const GET_LINKS = gql`
 `;
 
 export const GET_TAG_POPULARITY = gql`
-  query {
+  {
     popularity: tag_popularity {
       count
       type
@@ -62,7 +62,7 @@ export const GET_TAG_POPULARITY = gql`
 `;
 
 export const GET_PHONE_POPULARITY = gql`
-  query {
+  {
     popularity: phone_popularity {
       count
       type: device_type
@@ -71,7 +71,7 @@ export const GET_PHONE_POPULARITY = gql`
 `;
 
 export const GET_PRODUCT_POPULARITY = gql`
-  query {
+  {
     popularity: product_popularity(limit: 5) {
       count
       type: name
@@ -80,7 +80,7 @@ export const GET_PRODUCT_POPULARITY = gql`
 `;
 
 export const GET_COMPANY_ENGAGEMENT = gql`
-  query {
+  {
     popularity: company_engagement {
       count
       type: company_name
@@ -89,7 +89,7 @@ export const GET_COMPANY_ENGAGEMENT = gql`
 `;
 
 export const GET_LOCATION_ENGAGEMENT = gql`
-  query {
+  {
     popularity: location_engagement {
       company_name
       type: address
@@ -137,7 +137,7 @@ export const GET_SINGLE_LINK = gql`
 `;
 
 export const GET_SINGLE_PRODUCT_CODES = gql`
-  query SingleProduct($id: Int!) {
+  query SingleProductCodes($id: Int!) {
     product_by_pk(id: $id) {
       groups {
         code {
@@ -151,7 +151,7 @@ export const GET_SINGLE_PRODUCT_CODES = gql`
 `;
 
 export const GET_SINGLE_PRODUCT_LINKS = gql`
-  query SingleProduct($id: Int!) {
+  query SingleProductLinks($id: Int!) {
     product_by_pk(id: $id) {
       groups(distinct_on: id_link) {
         from_date
@@ -165,7 +165,7 @@ export const GET_SINGLE_PRODUCT_LINKS = gql`
 `;
 
 export const GET_SINGLE_LOCATION_PRODUCTS = gql`
-  query SingleLocation($id: Int!) {
+  query SingleLocationProducts($id: Int!) {
     location_by_pk(id: $id) {
       id
       groups(distinct_on: id_product) {
@@ -215,7 +215,7 @@ export const GET_SINGLE_LINK_CODES = gql`
 `;
 
 export const GET_SINGLE_LINK_PRODUCTS = gql`
-  query SingleLink($id: Int!) {
+  query SingleLinkProducts($id: Int!) {
     link_by_pk(id: $id) {
       id
       groups(distinct_on: id_product) {
@@ -236,7 +236,7 @@ export const GET_SINGLE_LINK_PRODUCTS = gql`
 `;
 
 export const GET_SINGLE_LINK_LOCATIONS = gql`
-  query SingleLink($id: Int!) {
+  query SingleLinkLocations($id: Int!) {
     link_by_pk(id: $id) {
       id
       groups(distinct_on: id_location) {

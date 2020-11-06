@@ -2,7 +2,7 @@ import React from "react";
 import { PieDatum } from "@nivo/pie";
 import { PieDiagramCard } from "../../components/diagrams/DiagramCard";
 import { DocumentNode, useQuery } from "@apollo/client";
-import { LoaderNoDash } from "../../components/LoaderInDash";
+import { LoaderNoDash } from "../universal-components/Loaders";
 // import { CardPanel } from "../../components/styledComponents/components";
 // const { Title } = Typography;
 // import { Typography } from "antd";

@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import React from "react";
-import LayoutM from "../../../components/LayoutM";
+import LayoutM from "../../../components/universal-components/LayoutM";
 import selectedPanel from "../../../utils/selectedPanel";
-import GetProductLinks from "./components/GetProductLinks";
-import GetSingleProductCodes from "./components/GetSingleProductCodes";
-import GetSingleProductLocations from "./components/GetSingleProductLocatons";
+import GetProductLinks from "../../../components/lista/produkty/components/GetProductLinks";
+import GetSingleProductCodes from "../../../components/lista/produkty/components/GetSingleProductCodes";
+import GetSingleProductLocations from "../../../components/lista/produkty/components/GetSingleProductLocatons";
 
 export const Product = () => {
   const router = useRouter();

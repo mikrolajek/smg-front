@@ -3,8 +3,8 @@ import { Table } from "antd";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import { LoaderNoDash } from "../../../../components/LoaderInDash";
-import { CardPanel } from "../../../../components/styledComponents/components";
+import { LoaderNoDash } from "../../../universal-components/Loaders";
+import { CardPanel } from "../../../styledComponents/components";
 import { GET_SINGLE_PRODUCT_CODES } from "../../../../utils/graphqlQSM/queries";
 
 interface IProps {

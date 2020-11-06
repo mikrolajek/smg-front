@@ -3,11 +3,12 @@ import App from "next/app";
 import "antd/dist/antd.css";
 import "../styles/global.css";
 import { ApolloProvider } from "@apollo/client";
-import createApolloClient from // initializeApollo,
-// useApollo,
-"../lib/apolloClient";
-// import { createContext, useEffect, useState } from "react";
+import createApolloClient from "../lib/apolloClient"; // useApollo, // initializeApollo,
+import jwt from "jsonwebtoken";
 import Cookies from "cookies";
+import React from "react";
+import Head from "next/head";
+// import { createContext, useEffect, useState } from "react";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const { token } = pageProps;
@@ -15,6 +16,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   // console.log(apolloClient, "pageProps", "####################");
   return (
     <ApolloProvider client={apolloClient}>
+      <Head>
+        <title>Samsung QR/NFC</title>
+      </Head>
       <Component {...pageProps} />
     </ApolloProvider>
   );
@@ -30,14 +34,23 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   // console.log(appContext, "APP CONTEXT");
 
   if (ISSERVER) {
-    console.log("ISSERVER");
-
     //@ts-ignore
     const cookies = new Cookies(req, res);
-
+    const secret = process.env.JWTSECRET || "";
     //@ts-ignore
     const cookieToken: string = cookies.get("token");
-    console.log(cookieToken, "cookieToken!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    console.log("Bearer ", cookieToken);
+
+    // try {
+    //   jwt.verify(cookieToken, secret);
+    // } catch (err) {
+    //   res?.writeHead(301, {
+    //     Location: "/login",
+    //   });
+    //   res?.end();
+    //   return { ...appProps };
+    // }
+
     if (!(asPath == "/login")) {
       if (!cookieToken) {
         res?.writeHead(301, {

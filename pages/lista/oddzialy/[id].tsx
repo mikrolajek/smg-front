@@ -1,15 +1,15 @@
 import { useRouter } from "next/router";
 import React from "react";
-import LayoutM from "../../../components/LayoutM";
+import LayoutM from "../../../components/universal-components/LayoutM";
 import selectedPanel from "../../../utils/selectedPanel";
 // import GetProductLinks from "./components/GetProductLinks";
 // import GetSingleProductCodes from "./components/GetSingleProductCodes";
 // import GetSingleProductLocations,
-import { GetSingleLocationProducts } from "./components/GetSingleProductLocatons";
+import { GetSingleLocationProducts } from "../../../components/lista/oddzialy/components/GetSingleProductLocatons";
 import { CardPanel } from "../../../components/styledComponents/components";
 import { useQuery } from "@apollo/client";
 import { GET_SINGLE_LOCATION } from "../../../utils/graphqlQSM/queries";
-import { LoaderInDash } from "../../../components/LoaderInDash";
+import { LoaderInDash } from "../../../components/universal-components/Loaders";
 import { Typography } from "antd";
 const { Title } = Typography;
 

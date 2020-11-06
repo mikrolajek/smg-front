@@ -36,11 +36,13 @@ export const Login = (req: NextApiRequest, res: NextApiResponse) => {
         "x-hasura-allowed-roles": ["samsungadmin", "admin"],
         "x-hasura-default-role": "admin",
       },
+      iat: Date.now() / 1000 - 30,
     };
 
     const token = jwt.sign(jwtBody, KEY, {
       algorithm: "HS256",
       expiresIn: 60 * 60 * 24,
+      //S, M, H
     });
     console.log(token);
 

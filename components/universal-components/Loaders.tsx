@@ -1,7 +1,7 @@
 import React from "react";
-import LayoutM from "../components/LayoutM";
+import LayoutM from "./LayoutM";
 import { Spin } from "antd";
-import { CardPanel } from "../components/styledComponents/components";
+import { CardPanel } from "../styledComponents/components";
 import styled from "styled-components";
 
 const CenterFlexItem = styled.div`

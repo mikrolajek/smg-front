@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 // import styled from "styled-components";
 import { useQuery } from "@apollo/client";
-import LayoutM from "../../../components/LayoutM";
+import LayoutM from "../../../components/universal-components/LayoutM";
 import { Table } from "antd";
 import selectedField from "../../../utils/selectedPanel";
 import { useRouter } from "next/router";
 import { CardPanel } from "../../../components/styledComponents/components";
 import { GET_LINKS } from "../../../utils/graphqlQSM/queries";
 import Link from "next/link";
-import { LoaderInDash } from "../../../components/LoaderInDash";
+import { LoaderInDash } from "../../../components/universal-components/Loaders";
 import getColumnSearchProps from "../../../utils/GetColumnsSearchProps";
 
 // const CenterFlexItem = styled.div`

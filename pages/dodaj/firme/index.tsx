@@ -1,6 +1,6 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
-import LayoutM from "../../../components/LayoutM";
+import LayoutM from "../../../components/universal-components/LayoutM";
 import { Button, Input } from "antd";
 import selectedField from "../../../utils/selectedPanel";
 // import { GET_COMPANIES } from "../../../utils/graphqlQSM/queries";

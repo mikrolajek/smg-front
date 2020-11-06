@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
-import LayoutM from "../../../components/LayoutM";
+import LayoutM from "../../../components/universal-components/LayoutM";
 import { Table } from "antd";
 import selectedField from "../../../utils/selectedPanel";
 import { GET_LOCATIONS } from "../../../utils/graphqlQSM/queries";
 import { useRouter } from "next/router";
 import { CardPanel } from "../../../components/styledComponents/components";
-import { LoaderInDash } from "../../../components/LoaderInDash";
+import { LoaderInDash } from "../../../components/universal-components/Loaders";
 import Link from "next/link";
 import getColumnSearchProps from "../../../utils/GetColumnsSearchProps";
 // import { Typography } from "antd";

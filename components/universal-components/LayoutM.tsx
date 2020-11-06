@@ -104,9 +104,7 @@ const LayoutM = ({ children, selectedField }: IProps) => {
               {children}
             </div>
           </Content>
-          <Footer style={{ textAlign: "center" }}>
-            Made with ✨ by Marcin
-          </Footer>
+          <Footer style={{ textAlign: "center" }}>Savoir Group</Footer>
         </Layout>
       </Layout>
     </>

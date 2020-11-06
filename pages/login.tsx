@@ -1,5 +1,6 @@
 // import { useApolloClient } from "@apollo/client";
 import { Button, Input } from "antd";
+import Head from "next/head";
 import Axios from "axios";
 import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -47,86 +48,91 @@ const Login = () => {
 
   const onHandleSubmitAsync = async (inp: Inputs) => {
     console.log(inp);
+    console.log(router);
     try {
       const {
         data: { token },
-      } = await Axios.post<token>("http://localhost:3000/api/login", {
+      } = await Axios.post<token>("/api/login", {
         ...inp,
       });
-      alert(token);
       Cookie.set("token", token);
       localStorage.setItem("token", token);
       router.push("/panel");
     } catch (error) {
-      setError("błędne hasło lub nazwa użytkownika");
+      setError("Błędne hasło lub nazwa użytkownika");
       console.log(error);
     }
 
     // alert(JSON.stringify(token));
   };
   return (
-    <CenterContent>
-      <CardPanel style={{ height: "fit-content" }}>
-        <h1>Logowanie</h1>
-        <FormFlex
-          onSubmit={handleSubmit(async (args: Inputs) => {
-            onHandleSubmitAsync(args);
-          })}>
-          <FormItem>
-            <label
-              style={{ display: "block", padding: "6px 2px" }}
-              htmlFor="username">
-              Nazwa użytkownika:{" "}
-            </label>
-            <Controller
-              name="username"
-              id="username"
-              as={<Input />}
-              rules={{ required: true }}
-              control={control}
-              defaultValue={null}
-              style={{ width: "100%" }}
-              placeholder="Nazwa użytkownika"
-            />
-          </FormItem>
+    <>
+      <Head>
+        <title>Login</title>
+      </Head>
+      <CenterContent>
+        <CardPanel style={{ height: "fit-content" }}>
+          <h1>Logowanie</h1>
+          <FormFlex
+            onSubmit={handleSubmit(async (args: Inputs) => {
+              onHandleSubmitAsync(args);
+            })}>
+            <FormItem>
+              <label
+                style={{ display: "block", padding: "6px 2px" }}
+                htmlFor="username">
+                Nazwa użytkownika:{" "}
+              </label>
+              <Controller
+                name="username"
+                id="username"
+                as={<Input />}
+                rules={{ required: true }}
+                control={control}
+                defaultValue={null}
+                style={{ width: "100%" }}
+                placeholder="Nazwa użytkownika"
+              />
+            </FormItem>
 
-          <FormItem>
-            <label
-              htmlFor="password"
-              style={{ display: "block", padding: "6px 2px" }}>
-              Hasło:
-            </label>
-            <Controller
-              name="password"
-              id="password"
-              as={<Input.Password />}
-              rules={{ required: true }}
-              control={control}
-              defaultValue={null}
-              style={{ width: "100%" }}
-              placeholder="Hasło"
-            />
-          </FormItem>
+            <FormItem>
+              <label
+                htmlFor="password"
+                style={{ display: "block", padding: "6px 2px" }}>
+                Hasło:
+              </label>
+              <Controller
+                name="password"
+                id="password"
+                as={<Input.Password />}
+                rules={{ required: true }}
+                control={control}
+                defaultValue={null}
+                style={{ width: "100%" }}
+                placeholder="Hasło"
+              />
+            </FormItem>
 
-          <FormItem style={{ display: "flex", justifyContent: "flex-end" }}>
-            <div></div>
-            <Controller
-              //@ts-ignore
-              name="submitButton"
-              control={control}
-              style={{ width: "100%", marginTop: "5px" }}
-              as={<Button> Zaloguj </Button>}
-              icon={<LoginOutlined />}
-              htmlType="submit"
-              type="primary"
-              size="large"
-              defaultValue={null}
-            />
-          </FormItem>
-          {error && <p>{error}</p>}
-        </FormFlex>
-      </CardPanel>
-    </CenterContent>
+            <FormItem style={{ display: "flex", justifyContent: "flex-end" }}>
+              <div></div>
+              <Controller
+                //@ts-ignore
+                name="submitButton"
+                control={control}
+                style={{ width: "100%", marginTop: "5px" }}
+                as={<Button> Zaloguj </Button>}
+                icon={<LoginOutlined />}
+                htmlType="submit"
+                type="primary"
+                size="large"
+                defaultValue={null}
+              />
+            </FormItem>
+            {error && <p style={{ color: "red" }}>{error}</p>}
+          </FormFlex>
+        </CardPanel>
+      </CenterContent>
+    </>
   );
 };
 

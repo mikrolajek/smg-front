@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 export const ADD_BRANCH = gql`
-  mutation insert_branch_one($branch: branch_insert_input!) {
-    insert_branch_one(object: $branch) {
+  mutation insert_branch_one($location: location_insert_input!) {
+    insert_location_one(object: $location) {
       id
       address
       id_company
