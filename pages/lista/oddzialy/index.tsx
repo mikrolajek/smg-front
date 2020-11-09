@@ -65,7 +65,7 @@ const Oddzialy = () => {
 
   if (error) {
     const router = useRouter();
-    router.push("/");
+    router.push("/login");
   }
 
   if (!loading) {

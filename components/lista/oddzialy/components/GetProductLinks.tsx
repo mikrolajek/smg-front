@@ -62,7 +62,7 @@ export const GetProductLinks = ({ id, title }: IProps) => {
 
   if (error) {
     const router = useRouter();
-    router.push("/");
+    router.push("/login");
   }
 
   if (!loading) {

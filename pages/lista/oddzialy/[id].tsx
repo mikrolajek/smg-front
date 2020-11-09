@@ -27,8 +27,9 @@ export const Product = () => {
 
   if (error) {
     const router = useRouter();
-    router.push("/");
+    router.push("/login");
   }
+
   if (!loading) {
     const { location_by_pk } = data;
     console.log(data);

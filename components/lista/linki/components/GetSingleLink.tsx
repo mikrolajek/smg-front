@@ -50,7 +50,7 @@ export const GetSingleLink = ({ id, title }: IGetSingleLinkProps) => {
 
   if (error) {
     const router = useRouter();
-    router.push("/");
+    router.push("/login");
   }
 
   // setInputValue();

@@ -1,19 +1,36 @@
 import React, { useState, ReactNode } from "react";
 import Link from "next/link";
 import { Layout, Menu, Breadcrumb } from "antd";
-
+import Cookie from "js-cookie";
 import {
   PlusOutlined,
   PieChartOutlined,
   FileOutlined,
   TeamOutlined,
   DesktopOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
 import { useRouter } from "next/router";
 import { Typography } from "antd";
+import styled from "styled-components";
 const { Title } = Typography;
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
+
+const StyledMenu = styled(Menu)`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+  &::before {
+    display: flex;
+  }
+  &::after {
+    display: flex;
+  }
+  &:last-child {
+  }
+`;
 
 type TitleFontSize = 1 | 2 | 3 | 4;
 type IProps = {
@@ -25,8 +42,7 @@ const LayoutM = ({ children, selectedField }: IProps) => {
   const [collapsed, setCollapsed] = useState<boolean>(false);
   const [level, setLevel] = useState<TitleFontSize>(1);
   const router = useRouter();
-
-  router.pathname;
+  const routePathSplit = router.asPath.split("/").slice(1);
   const handleOnCollapse = () => {
     setCollapsed(!collapsed);
     setLevel(level == 1 ? 4 : 1);
@@ -51,7 +67,7 @@ const LayoutM = ({ children, selectedField }: IProps) => {
               Savoir
             </Title>
           </div>
-          <Menu
+          <StyledMenu
             selectedKeys={[`${selectedField}`]}
             theme="dark"
             defaultSelectedKeys={[`${selectedField}`]}
@@ -91,14 +107,39 @@ const LayoutM = ({ children, selectedField }: IProps) => {
             <Menu.Item key="2" icon={<PieChartOutlined />}>
               <Link href="/raporty">Raporty</Link>
             </Menu.Item>
-          </Menu>
+            <Menu.Item
+              style={{ justifySelf: "flex-end" }}
+              key="99"
+              icon={<LogoutOutlined />}
+              onClick={() => {
+                console.log(
+                  "PRZED localStorage",
+                  localStorage.getItem("token")
+                );
+                console.log("PRZED", Cookie.get("token"));
+                Cookie.remove("token");
+                localStorage.removeItem("token");
+                console.log("PO", Cookie.get("token"));
+                console.log("PO localStorage", localStorage.getItem("token"));
+              }}>
+              <Link href="/login">Wyloguj</Link>
+            </Menu.Item>
+          </StyledMenu>
         </Sider>
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }} />
           <Content style={{ margin: "0 16px", backgroundColor: "fff" }}>
             <Breadcrumb style={{ margin: "16px 0" }}>
-              <Breadcrumb.Item>User</Breadcrumb.Item>
-              <Breadcrumb.Item>Bill</Breadcrumb.Item>
+              {routePathSplit.map((path, index) => {
+                const hrefPath = routePathSplit.slice(0, index + 1).join("/");
+                return (
+                  <Breadcrumb.Item key={index}>
+                    <Link href={`/${hrefPath}`}>
+                      <a>{path}</a>
+                    </Link>
+                  </Breadcrumb.Item>
+                );
+              })}
             </Breadcrumb>
             <div className="" style={{ display: "flex", flexWrap: "wrap" }}>
               {children}

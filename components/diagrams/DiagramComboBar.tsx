@@ -4,6 +4,7 @@ import { PieDatum } from "@nivo/pie";
 import { DocumentNode, useQuery } from "@apollo/client";
 import { LoaderNoDash } from "../universal-components/Loaders";
 import { BarDiagramCard } from "./DiagramBarCard";
+import { useRouter } from "next/router";
 // const { Title } = Typography;
 
 interface IDiagramComboProps {
@@ -28,7 +29,7 @@ export const DiagramComboBar = ({
     popularity: ITagPopularity[];
   };
 
-  const { loading, data } = useQuery<tagPop>(gqlQuery);
+  const { loading, data, error } = useQuery<tagPop>(gqlQuery);
 
   const fillData = (data: tagPop | undefined) => {
     if (data === undefined) {
@@ -52,6 +53,10 @@ export const DiagramComboBar = ({
 
   if (loading) {
     return <LoaderNoDash />;
+  }
+  if (error) {
+    const router = useRouter();
+    router.push("/login");
   }
 
   if (!loading) {

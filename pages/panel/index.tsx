@@ -1,72 +1,61 @@
 import React from "react";
 import LayoutM from "../../components/universal-components/LayoutM";
-import { Spin } from "antd";
-import { gql, useQuery } from "@apollo/client";
-import { CardPanel } from "../../components/styledComponents/components";
-import { Query_Root } from "../../src/generated/graphql";
+import { Card } from "antd";
+import {
+  HomeOutlined,
+  TagOutlined,
+  PieChartOutlined,
+  LinkOutlined,
+  PlusCircleOutlined,
+} from "@ant-design/icons";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import styled from "styled-components";
+import CardWithIcon from "../../components/universal-components/CardWithIcon";
 
-// const CardPanel = styled.div`
-//   background-color: white;
-//   padding: 50px;
-//   border-radius: 5px;
-// `;
-
-const GET_CODES = gql`
-  query {
-    code {
-      type
-      uid
-    }
-  }
-`;
+const { Meta } = Card;
 
 const Panel = () => {
-  const { loading, error, data } = useQuery<Query_Root>(GET_CODES);
-
-  if (error) {
-    console.log(error);
-    return <h1>Error, check console</h1>;
-  }
-
-  if (loading) {
-    return (
-      <>
-        <Head>
-          <title>Panel </title>
-        </Head>
-        <LayoutM selectedField={1}>
-          <CardPanel>
-            <Spin size="large" />
-          </CardPanel>
-        </LayoutM>
-      </>
-    );
-  }
-
-  if (error) {
-    console.log(error);
-  }
-  if (!loading) {
-    return (
-      <>
-        <Head>
-          <title>Panel </title>
-        </Head>
-        <LayoutM selectedField={1}>
-          <CardPanel>
-            {data?.code.map((item) => (
-              <>
-                <h1>{item.type}</h1>
-                <h2>{item.uid}</h2>
-              </>
-            ))}
-          </CardPanel>
-        </LayoutM>
-      </>
-    );
-  }
-  // data.code.map((item: any) => console.log(item));
+  return (
+    <>
+      <Head>
+        <title>Panel </title>
+      </Head>
+      <LayoutM selectedField={9}>
+        <CardWithIcon
+          Icon={TagOutlined}
+          title="Produkty"
+          description="Lista wszystkich produktów"
+          href="/lista/produkty"
+        />
+        <CardWithIcon
+          Icon={HomeOutlined}
+          title="Oddziały"
+          description="Lista wszystkich oddziałów"
+          href="/lista/oddzialy"
+        />
+        <CardWithIcon
+          Icon={LinkOutlined}
+          title="Linki"
+          description="Lista aktywnych linków"
+          href="/lista/produkty"
+        />
+        <CardWithIcon
+          Icon={PieChartOutlined}
+          title="Raporty"
+          description="Wszystkie raporty"
+          href="/raporty"
+        />
+        <CardWithIcon
+          Icon={PlusCircleOutlined}
+          title="Dodaj"
+          description="Panel dodawania"
+          href="/dodaj"
+        />
+      </LayoutM>
+    </>
+  );
 };
 
 export default Panel;
+// #1890FF

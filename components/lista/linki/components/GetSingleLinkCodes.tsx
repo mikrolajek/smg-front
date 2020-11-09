@@ -59,7 +59,7 @@ export const GetSingleLinkCodes = ({ id, title }: IProps) => {
 
   if (error) {
     const router = useRouter();
-    router.push("/");
+    router.push("/login");
   }
 
   const ds = data.link_by_pk.groups.map((item: any) => ({
