@@ -5,7 +5,7 @@ import Cookie from "js-cookie";
 import {
   PlusOutlined,
   PieChartOutlined,
-  FileOutlined,
+  // FileOutlined,
   TeamOutlined,
   DesktopOutlined,
   LogoutOutlined,
@@ -72,10 +72,10 @@ const LayoutM = ({ children, selectedField }: IProps) => {
             theme="dark"
             defaultSelectedKeys={[`${selectedField}`]}
             mode="inline">
-            <Menu.Item key="1" icon={<DesktopOutlined />}>
+            {/* <Menu.Item key="1" icon={<DesktopOutlined />}>
               <Link href="/">Zarządzaj</Link>
-            </Menu.Item>
-            <Menu.Item key="9" icon={<FileOutlined />}>
+            </Menu.Item> */}
+            <Menu.Item key="9" icon={<DesktopOutlined />}>
               <Link href="/panel">Panel</Link>
             </Menu.Item>
             <SubMenu key="sub1" icon={<PlusOutlined />} title="Dodaj">

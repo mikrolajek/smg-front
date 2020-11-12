@@ -1,7 +1,7 @@
 import { Card } from "antd";
 import styled from "styled-components";
 import React, { FC } from "react";
-import { AntdIconProps } from "@ant-design/icons/lib/components/AntdIcon";
+// import { AntdIconProps } from "@ant-design/icons/lib/components/AntdIcon";
 import Link from "next/link";
 const { Meta } = Card;
 

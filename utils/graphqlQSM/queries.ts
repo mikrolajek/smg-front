@@ -254,3 +254,16 @@ export const GET_SINGLE_LINK_LOCATIONS = gql`
     }
   }
 `;
+
+export const GET_SINGLE_COMPANY = gql`
+  query SingleCompany($id: Int!) {
+    company_by_pk(id: $id) {
+      id
+      name
+      locations {
+        id
+        address
+      }
+    }
+  }
+`;

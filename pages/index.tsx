@@ -71,6 +71,6 @@
 
 // export default IndexPage;
 export const Index = () => {
-  return <h1>Siema</h1>;
+  return <h1>Strona kontrolna</h1>;
 };
 export default Index;

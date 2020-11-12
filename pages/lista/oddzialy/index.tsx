@@ -13,13 +13,6 @@ import getColumnSearchProps from "../../../utils/GetColumnsSearchProps";
 // const { Title } = Typography;
 
 const Oddzialy = () => {
-  // const CardPanel = styled.div`
-  //   background-color: white;
-  //   padding: 50px;
-  //   border-radius: 5px;
-  //   max-width: 500px;
-  // `;
-
   const [searchText, setSearchText] = useState<string>("");
   const [searchedColumn, setSearchedColumn] = useState<string>("");
 

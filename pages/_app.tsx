@@ -4,7 +4,7 @@ import "antd/dist/antd.css";
 import "../styles/global.css";
 import { ApolloProvider } from "@apollo/client";
 import createApolloClient from "../lib/apolloClient"; // useApollo, // initializeApollo,
-import jwt from "jsonwebtoken";
+// import jwt from "jsonwebtoken";
 import Cookies from "cookies";
 import React from "react";
 import Head from "next/head";
@@ -109,7 +109,7 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
   if (ISSERVER) {
     //@ts-ignore
     const cookies = new Cookies(req, res);
-    const secret = process.env.JWTSECRET || "";
+    // const secret = process.env.JWTSECRET || "";
     //@ts-ignore
     const cookieToken: string = cookies.get("token");
     console.log("Bearer ", cookieToken);

@@ -1,19 +1,15 @@
 import React from "react";
 import LayoutM from "../../components/universal-components/LayoutM";
-import { Card } from "antd";
 import {
   HomeOutlined,
   TagOutlined,
   PieChartOutlined,
   LinkOutlined,
   PlusCircleOutlined,
+  BankOutlined,
 } from "@ant-design/icons";
 import Head from "next/head";
-import { useRouter } from "next/router";
-import styled from "styled-components";
 import CardWithIcon from "../../components/universal-components/CardWithIcon";
-
-const { Meta } = Card;
 
 const Panel = () => {
   return (
@@ -22,36 +18,54 @@ const Panel = () => {
         <title>Panel </title>
       </Head>
       <LayoutM selectedField={9}>
-        <CardWithIcon
-          Icon={TagOutlined}
-          title="Produkty"
-          description="Lista wszystkich produktów"
-          href="/lista/produkty"
-        />
-        <CardWithIcon
-          Icon={HomeOutlined}
-          title="Oddziały"
-          description="Lista wszystkich oddziałów"
-          href="/lista/oddzialy"
-        />
-        <CardWithIcon
-          Icon={LinkOutlined}
-          title="Linki"
-          description="Lista aktywnych linków"
-          href="/lista/produkty"
-        />
-        <CardWithIcon
-          Icon={PieChartOutlined}
-          title="Raporty"
-          description="Wszystkie raporty"
-          href="/raporty"
-        />
-        <CardWithIcon
-          Icon={PlusCircleOutlined}
-          title="Dodaj"
-          description="Panel dodawania"
-          href="/dodaj"
-        />
+        <div
+          style={{
+            display: "flex",
+            width: "100%",
+            maxWidth: "100%",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyItems: "center",
+            alignItems: "center",
+            justifyContent: "center",
+          }}>
+          <CardWithIcon
+            Icon={TagOutlined}
+            title="Produkty"
+            description="Lista wszystkich produktów"
+            href="/lista/produkty"
+          />
+          <CardWithIcon
+            Icon={HomeOutlined}
+            title="Oddziały"
+            description="Lista wszystkich oddziałów"
+            href="/lista/oddzialy"
+          />
+          <CardWithIcon
+            Icon={BankOutlined}
+            title="Firmy"
+            description="Lista wszystkich firm"
+            href="/lista/firmy"
+          />
+          <CardWithIcon
+            Icon={LinkOutlined}
+            title="Linki"
+            description="Lista aktywnych linków"
+            href="/lista/produkty"
+          />
+          <CardWithIcon
+            Icon={PieChartOutlined}
+            title="Raporty"
+            description="Wszystkie raporty"
+            href="/raporty"
+          />
+          <CardWithIcon
+            Icon={PlusCircleOutlined}
+            title="Dodaj"
+            description="Panel dodawania"
+            href="/dodaj"
+          />
+        </div>
       </LayoutM>
     </>
   );

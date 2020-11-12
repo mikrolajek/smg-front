@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import LayoutM from "../../../components/universal-components/LayoutM";
 import { Table } from "antd";
@@ -7,26 +7,46 @@ import { CardPanel } from "../../../components/styledComponents/components";
 import { useRouter } from "next/router";
 import { GET_COMPANIES } from "../../../utils/graphqlQSM/queries";
 import { LoaderInDash } from "../../../components/universal-components/Loaders";
+import getColumnSearchProps from "../../../utils/GetColumnsSearchProps";
+import Link from "next/link";
 
 const Firmy = () => {
-  // const CardPanel = styled.div`
-  //   background-color: white;
-  //   padding: 50px;
-  //   border-radius: 5px;
-  //   max-width: 500px;
-  // `;
+  const [searchText, setSearchText] = useState<string>("");
+  const [searchedColumn, setSearchedColumn] = useState<string>("");
+
+  const getColumnSearchProp: (arg: string) => any = getColumnSearchProps(
+    searchText,
+    setSearchText,
+    searchedColumn,
+    setSearchedColumn
+  );
+
   const { loading, error, data } = useQuery(GET_COMPANIES);
 
   const columns = [
     {
-      title: "Oddział",
-      dataIndex: "branchAddress",
-      key: "branchAddress",
+      title: "Id",
+      dataIndex: "id",
+      key: "id",
+      ...getColumnSearchProp("id"),
     },
     {
       title: "Firma",
-      dataIndex: "companyName",
-      key: "companyName",
+      dataIndex: "company",
+      key: "company",
+      ...getColumnSearchProp("company"),
+    },
+    {
+      title: "Odnośnik ",
+      dataIndex: "id",
+      key: "id",
+      render: (text: string) => (
+        <span>
+          <Link href={`/lista/firmy/${text}`}>
+            <a>Więcej&nbsp;&gt;</a>
+          </Link>
+        </span>
+      ),
     },
   ];
 
@@ -41,8 +61,8 @@ const Firmy = () => {
 
   if (!loading) {
     const dataSourcev2 = data.company.map((company: any) => ({
-      companyName: company.name,
-      branchAddress: company.id,
+      company: company.name,
+      id: company.id,
       key: `${company.id}`,
     }));
 
@@ -50,7 +70,7 @@ const Firmy = () => {
     return (
       <LayoutM selectedField={selectedField.LISTA_FIRMY}>
         <CardPanel>
-          <h1>Oddziały</h1>
+          <h1>Firmy</h1>
           <Table dataSource={dataSourcev2} columns={columns} />
         </CardPanel>
       </LayoutM>
