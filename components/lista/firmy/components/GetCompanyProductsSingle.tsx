@@ -5,7 +5,9 @@ import { useRouter } from "next/router";
 import React from "react";
 import { LoaderNoDash } from "../../../universal-components/Loaders";
 import { CardPanel } from "../../../styledComponents/components";
-import { GET_SINGLE_PRODUCT_CODES } from "../../../../utils/graphqlQSM/queries";
+import { GET_SINGLE_COMPANY_PRODUCTS } from "../../../../utils/graphqlQSM/queries";
+import { Typography } from "antd";
+const { Title } = Typography;
 
 interface IProps {
   id: string | string[];
@@ -26,14 +28,9 @@ const columns: col[] = [
     key: "id",
   },
   {
-    title: "Typ",
-    dataIndex: "type",
-    key: "type",
-  },
-  {
-    title: "Uid",
-    dataIndex: "uid",
-    key: "uid",
+    title: "Nazwa",
+    dataIndex: "name",
+    key: "name",
   },
   {
     title: "Zasób",
@@ -41,7 +38,7 @@ const columns: col[] = [
     key: "id",
     render: (text: string) => (
       <span>
-        <Link href={`/lista/kody/[id]`} as={`/lista/kody/${text}`}>
+        <Link href={`/lista/produkty/[id]`} as={`/lista/produkty/${text}`}>
           <a>Więcej&nbsp;&gt;</a>
         </Link>
       </span>
@@ -49,8 +46,8 @@ const columns: col[] = [
   },
 ];
 
-export const GetSingleProductCodes = ({ id, title }: IProps) => {
-  const { loading, error, data } = useQuery(GET_SINGLE_PRODUCT_CODES, {
+export const GetCompanyProductsSingle = ({ id, title }: IProps) => {
+  const { loading, error, data } = useQuery(GET_SINGLE_COMPANY_PRODUCTS, {
     variables: { id: id },
   });
 
@@ -63,25 +60,18 @@ export const GetSingleProductCodes = ({ id, title }: IProps) => {
     router.push("/login");
   }
 
-  if (!loading) {
-    if (!loading) {
-      const ds = data.product_by_pk.groups.map((item: any) => ({
-        id: item.code.id,
-        type: item?.code.type,
-        uid: item.code.uid,
-        key: `${item.code.id}`,
-      }));
+  const ds = data.group.map((item: any) => ({
+    id: item.product.id,
+    name: item.product.name,
+    key: `${item.product.id}`,
+  }));
 
-      return (
-        <CardPanel style={{ maxWidth: " 700px" }}>
-          <h1>{title}</h1>
-          <Table dataSource={ds} columns={columns} />
-        </CardPanel>
-      );
-    }
-  }
-
-  return <></>;
+  return (
+    <CardPanel style={{ maxWidth: " 700px" }}>
+      <Title level={2}>{title}</Title>
+      <Table dataSource={ds} columns={columns} />
+    </CardPanel>
+  );
 };
 
-export default GetSingleProductCodes;
+export default GetCompanyProductsSingle;

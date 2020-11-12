@@ -134,7 +134,7 @@ const LayoutM = ({ children, selectedField }: IProps) => {
                 const hrefPath = routePathSplit.slice(0, index + 1).join("/");
                 return (
                   <Breadcrumb.Item key={index}>
-                    <Link href={`/${hrefPath}`}>
+                    <Link href={`/${hrefPath}`} as={`/${hrefPath}`}>
                       <a>{path}</a>
                     </Link>
                   </Breadcrumb.Item>

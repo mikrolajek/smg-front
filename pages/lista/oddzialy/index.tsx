@@ -44,7 +44,7 @@ const Oddzialy = () => {
       key: "id",
       render: (text: string) => (
         <span>
-          <Link href={`/lista/oddzialy/${text}`}>
+          <Link href={`/lista/oddzialy/[id]`} as={`/lista/oddzialy/${text}`}>
             <a>Więcej&nbsp;&gt;</a>
           </Link>
         </span>

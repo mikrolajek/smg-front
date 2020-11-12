@@ -37,7 +37,7 @@ const columns: col[] = [
     key: "id",
     render: (text: string) => (
       <span>
-        <Link href={`/lista/produkty/${text}`}>
+        <Link href={`/lista/produkty/[id]`} as={`/lista/produkty/${text}`}>
           <a>Więcej&nbsp;&gt;</a>
         </Link>
       </span>

@@ -267,3 +267,28 @@ export const GET_SINGLE_COMPANY = gql`
     }
   }
 `;
+
+export const GET_SINGLE_COMPANY_PRODUCTS = gql`
+  query SingleCompanyProducts($id: Int!) {
+    group(
+      where: { location: { company: { id: { _eq: $id } } } }
+      distinct_on: id_product
+    ) {
+      product {
+        id
+        name
+      }
+    }
+  }
+`;
+
+export const GET_SINGLE_COMPANY_LOCATIONS = gql`
+  query SingleCompanyLocations($id: Int!) {
+    company_by_pk(id: $id) {
+      locations {
+        id
+        address
+      }
+    }
+  }
+`;

@@ -44,7 +44,7 @@ const Firmy = () => {
       key: "id",
       render: (text: string) => (
         <span>
-          <Link href={`/lista/firmy/${text}`}>
+          <Link href={`/lista/firmy/[id]`} as={`/lista/firmy/${text}`}>
             <a>Więcej&nbsp;&gt;</a>
           </Link>
         </span>
