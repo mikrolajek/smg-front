@@ -28,9 +28,6 @@ export const Login = (req: NextApiRequest, res: NextApiResponse) => {
         el.password === reqUser.password && el.username === reqUser.username
     )
   ) {
-    console.log("jest w srodku");
-    console.log(req.body);
-
     const jwtBody = {
       "https://hasura.io/jwt/claims": {
         "x-hasura-allowed-roles": ["samsungadmin", "admin"],
@@ -44,11 +41,9 @@ export const Login = (req: NextApiRequest, res: NextApiResponse) => {
       expiresIn: 60 * 60 * 24,
       //S, M, H
     });
-    console.log(token);
 
     return res.json({ token: token });
   } else {
-    console.log("nie ma go w srodku!!!!!!!!");
     res.statusCode = 400;
   }
   res.end();

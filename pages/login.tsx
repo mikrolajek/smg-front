@@ -47,8 +47,6 @@ const Login = () => {
   // const [addProduct] = useMutation(ADD_PRODUCT);
 
   const onHandleSubmitAsync = async (inp: Inputs) => {
-    console.log(inp);
-    console.log(router);
     try {
       const {
         data: { token },
