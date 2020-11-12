@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import styled from "styled-components";
 import { useQuery } from "@apollo/client";
 import LayoutM from "../../../components/universal-components/LayoutM";
 import { Table } from "antd";
@@ -10,10 +9,8 @@ import { GET_PRODUCTS } from "../../../utils/graphqlQSM/queries";
 import Link from "next/link";
 import { LoaderInDash } from "../../../components/universal-components/Loaders";
 import getColumnSearchProps from "../../../utils/GetColumnsSearchProps";
-
-// const CenterFlexItem = styled.div`
-//   margin: auto;
-// `;
+import { Typography } from "antd";
+const { Title } = Typography;
 
 const Produkty = () => {
   const [searchText, setSearchText] = useState<string>("");
@@ -75,7 +72,7 @@ const Produkty = () => {
     return (
       <LayoutM selectedField={selectedField.LISTA_PRODUKTY}>
         <CardPanel>
-          <h1>Produkty</h1>
+          <Title level={2}>Produkty</Title>
           <Table dataSource={dataSourcev2} columns={columns} />
         </CardPanel>
       </LayoutM>

@@ -32,7 +32,7 @@ const StyledMenu = styled(Menu)`
   }
 `;
 
-type TitleFontSize = 1 | 2 | 3 | 4;
+type TitleFontSize = 1 | 2 | 3 | 4 | 5;
 type IProps = {
   children?: ReactNode;
   selectedField: number | string;
@@ -45,7 +45,7 @@ const LayoutM = ({ children, selectedField }: IProps) => {
   const routePathSplit = router.asPath.split("/").slice(1);
   const handleOnCollapse = () => {
     setCollapsed(!collapsed);
-    setLevel(level == 1 ? 4 : 1);
+    setLevel(level == 1 ? 5 : 1);
   };
   return (
     <>
@@ -64,7 +64,7 @@ const LayoutM = ({ children, selectedField }: IProps) => {
             }}
             className="logo">
             <Title level={level} style={{ color: "white" }}>
-              Savoir
+              Samsung
             </Title>
           </div>
           <StyledMenu
@@ -83,10 +83,10 @@ const LayoutM = ({ children, selectedField }: IProps) => {
                 <Link href="/dodaj/produkt">Produkt</Link>
               </Menu.Item>
               <Menu.Item key="4">
-                <Link href="/dodaj/oddzial">Oddział</Link>
+                <Link href="/dodaj/oddzial">Sklep</Link>
               </Menu.Item>
               <Menu.Item key="5">
-                <Link href="/dodaj/firme">Firmę</Link>
+                <Link href="/dodaj/firme">Sieć</Link>
               </Menu.Item>
             </SubMenu>
             <SubMenu key="sub2" icon={<TeamOutlined />} title="Lista">
@@ -94,10 +94,10 @@ const LayoutM = ({ children, selectedField }: IProps) => {
                 <Link href="/lista/produkty">Produkty</Link>
               </Menu.Item>
               <Menu.Item key="7">
-                <Link href="/lista/oddzialy">Oddzialy</Link>
+                <Link href="/lista/oddzialy">Sklepy</Link>
               </Menu.Item>
               <Menu.Item key="8">
-                <Link href="/lista/firmy">Firmy</Link>
+                <Link href="/lista/firmy">Sieci</Link>
               </Menu.Item>
               <Menu.Item key="10">
                 <Link href="/lista/linki">Linki</Link>

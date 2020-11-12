@@ -9,8 +9,8 @@ import { CardPanel } from "../../../components/styledComponents/components";
 import { LoaderInDash } from "../../../components/universal-components/Loaders";
 import Link from "next/link";
 import getColumnSearchProps from "../../../utils/GetColumnsSearchProps";
-// import { Typography } from "antd";
-// const { Title } = Typography;
+import { Typography } from "antd";
+const { Title } = Typography;
 
 const Oddzialy = () => {
   const [searchText, setSearchText] = useState<string>("");
@@ -27,7 +27,7 @@ const Oddzialy = () => {
 
   const columns = [
     {
-      title: "Oddział",
+      title: "Sklep",
       dataIndex: "adres",
       key: "adres",
       ...getColumnSearchProp("adres"),
@@ -72,7 +72,7 @@ const Oddzialy = () => {
     return (
       <LayoutM selectedField={selectedField.LISTA_ODDZIALY}>
         <CardPanel style={{ maxWidth: "600px", width: "500px" }}>
-          <h1>Oddziały</h1>
+          <Title level={2}>Sklepy</Title>
           <Table dataSource={dataSourcev2} columns={columns} />
         </CardPanel>
       </LayoutM>

@@ -32,12 +32,12 @@ export const Dodaj = () => {
         />
         <CardWithIcon
           Icon={HomeOutlined}
-          title="Dodaj Oddział"
+          title="Dodaj Sklep"
           href="/dodaj/oddzial"
         />
         <CardWithIcon
           Icon={BankOutlined}
-          title="Dodaj firmę"
+          title="Dodaj Sieć"
           href="/dodaj/firme"
         />
       </div>

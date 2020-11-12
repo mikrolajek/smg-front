@@ -37,21 +37,21 @@ const Panel = () => {
           />
           <CardWithIcon
             Icon={HomeOutlined}
-            title="Oddziały"
-            description="Lista wszystkich oddziałów"
+            title="Sklepy"
+            description="Lista wszystkich sklepów"
             href="/lista/oddzialy"
           />
           <CardWithIcon
             Icon={BankOutlined}
-            title="Firmy"
-            description="Lista wszystkich firm"
+            title="Sieci"
+            description="Lista wszystkich sieci"
             href="/lista/firmy"
           />
           <CardWithIcon
             Icon={LinkOutlined}
             title="Linki"
             description="Lista aktywnych linków"
-            href="/lista/produkty"
+            href="/lista/linki"
           />
           <CardWithIcon
             Icon={PieChartOutlined}

@@ -9,6 +9,8 @@ import { GET_COMPANIES } from "../../../utils/graphqlQSM/queries";
 import { LoaderInDash } from "../../../components/universal-components/Loaders";
 import getColumnSearchProps from "../../../utils/GetColumnsSearchProps";
 import Link from "next/link";
+import { Typography } from "antd";
+const { Title } = Typography;
 
 const Firmy = () => {
   const [searchText, setSearchText] = useState<string>("");
@@ -70,7 +72,7 @@ const Firmy = () => {
     return (
       <LayoutM selectedField={selectedField.LISTA_FIRMY}>
         <CardPanel>
-          <h1>Firmy</h1>
+          <Title level={2}>Sieci</Title>
           <Table dataSource={dataSourcev2} columns={columns} />
         </CardPanel>
       </LayoutM>
