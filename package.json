@@ -4,8 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "startLocal": "next start",
-    "start": "/home/site/wwwroot/node_modules/next/dist/bin/next start",
+    "start": "next start",
+    "startAzure": "/home/site/wwwroot/node_modules/next/dist/bin/next start",
     "codegen": "graphql-codegen --config codegen.js",
     "type-check": "tsc"
   },
