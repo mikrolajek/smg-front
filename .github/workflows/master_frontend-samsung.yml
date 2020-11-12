@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'frontend-samsung'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_6ef4e7cc215247a4be0b4a41d7c6a11d }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_f6f1ccce0b9b4e558684a3b35819f030 }}
         package: .
