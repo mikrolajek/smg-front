@@ -2,7 +2,7 @@ import LayoutM from "../components/universal-components/LayoutM";
 import CardWithIcon from "../components/universal-components/CardWithIcon";
 import { HomeOutlined, TagOutlined, BankOutlined } from "@ant-design/icons";
 import React from "react";
-import { CardPanel } from "../components/styledComponents/components";
+// import { CardPanel } from "../components/styledComponents/components";
 import { Typography } from "antd";
 const { Title } = Typography;
 

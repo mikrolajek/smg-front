@@ -3,7 +3,7 @@ import React from "react";
 import LayoutM from "../../../components/universal-components/LayoutM";
 import selectedPanel from "../../../utils/selectedPanel";
 import { GetSingleLocationProducts } from "../../../components/lista/oddzialy/components/GetSingleProductLocatons";
-import { CardPanel } from "../../../components/styledComponents/components";
+// import { CardPanel } from "../../../components/styledComponents/components";
 import { useQuery } from "@apollo/client";
 import { GET_SINGLE_COMPANY } from "../../../utils/graphqlQSM/queries";
 import { LoaderInDash } from "../../../components/universal-components/Loaders";
