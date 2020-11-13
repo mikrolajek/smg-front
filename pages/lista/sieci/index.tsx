@@ -3,16 +3,16 @@ import { useQuery } from "@apollo/client";
 import LayoutM from "../../../components/universal-components/LayoutM";
 import { Table } from "antd";
 import selectedField from "../../../utils/selectedPanel";
-import { GET_LOCATIONS } from "../../../utils/graphqlQSM/queries";
-import { useRouter } from "next/router";
 import { CardPanel } from "../../../components/styledComponents/components";
+import { useRouter } from "next/router";
+import { GET_COMPANIES } from "../../../utils/graphqlQSM/queries";
 import { LoaderInDash } from "../../../components/universal-components/Loaders";
-import Link from "next/link";
 import getColumnSearchProps from "../../../utils/GetColumnsSearchProps";
+import Link from "next/link";
 import { Typography } from "antd";
 const { Title } = Typography;
 
-const Oddzialy = () => {
+const Sieci = () => {
   const [searchText, setSearchText] = useState<string>("");
   const [searchedColumn, setSearchedColumn] = useState<string>("");
 
@@ -23,20 +23,20 @@ const Oddzialy = () => {
     setSearchedColumn
   );
 
-  const { loading, error, data } = useQuery(GET_LOCATIONS);
+  const { loading, error, data } = useQuery(GET_COMPANIES);
 
   const columns = [
     {
-      title: "Sklep",
-      dataIndex: "adres",
-      key: "adres",
-      ...getColumnSearchProp("adres"),
+      title: "Id",
+      dataIndex: "id",
+      key: "id",
+      ...getColumnSearchProp("id"),
     },
     {
       title: "Firma",
-      dataIndex: "firma",
-      key: "firma",
-      ...getColumnSearchProp("firma"),
+      dataIndex: "company",
+      key: "company",
+      ...getColumnSearchProp("company"),
     },
     {
       title: "Odnośnik ",
@@ -44,7 +44,7 @@ const Oddzialy = () => {
       key: "id",
       render: (text: string) => (
         <span>
-          <Link href={`/lista/oddzialy/[id]`} as={`/lista/oddzialy/${text}`}>
+          <Link href={`/lista/sieci/[id]`} as={`/lista/sieci/${text}`}>
             <a>Więcej&nbsp;&gt;</a>
           </Link>
         </span>
@@ -53,7 +53,7 @@ const Oddzialy = () => {
   ];
 
   if (loading) {
-    return <LoaderInDash selectedField={selectedField.LISTA_ODDZIALY} />;
+    return <LoaderInDash selectedField={selectedField.LISTA_FIRMY} />;
   }
 
   if (error) {
@@ -62,21 +62,21 @@ const Oddzialy = () => {
   }
 
   if (!loading) {
-    const dataSourcev2 = data.location.map((location: any) => ({
-      firma: location.company.name,
-      adres: location.address,
-      id: location.id,
-      key: `${location.company.id}-${location.id}`,
+    const dataSourcev2 = data.company.map((company: any) => ({
+      company: company.name,
+      id: company.id,
+      key: `${company.id}`,
     }));
 
+    console.log(dataSourcev2);
     return (
-      <LayoutM selectedField={selectedField.LISTA_ODDZIALY}>
-        <CardPanel style={{ maxWidth: "600px", width: "500px" }}>
-          <Title level={2}>Sklepy</Title>
+      <LayoutM selectedField={selectedField.LISTA_FIRMY}>
+        <CardPanel>
+          <Title level={2}>Sieci</Title>
           <Table dataSource={dataSourcev2} columns={columns} />
         </CardPanel>
       </LayoutM>
     );
   }
 };
-export default Oddzialy;
+export default Sieci;

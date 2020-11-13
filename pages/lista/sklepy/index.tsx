@@ -3,16 +3,16 @@ import { useQuery } from "@apollo/client";
 import LayoutM from "../../../components/universal-components/LayoutM";
 import { Table } from "antd";
 import selectedField from "../../../utils/selectedPanel";
-import { CardPanel } from "../../../components/styledComponents/components";
+import { GET_LOCATIONS } from "../../../utils/graphqlQSM/queries";
 import { useRouter } from "next/router";
-import { GET_COMPANIES } from "../../../utils/graphqlQSM/queries";
+import { CardPanel } from "../../../components/styledComponents/components";
 import { LoaderInDash } from "../../../components/universal-components/Loaders";
-import getColumnSearchProps from "../../../utils/GetColumnsSearchProps";
 import Link from "next/link";
+import getColumnSearchProps from "../../../utils/GetColumnsSearchProps";
 import { Typography } from "antd";
 const { Title } = Typography;
 
-const Firmy = () => {
+const Sklepy = () => {
   const [searchText, setSearchText] = useState<string>("");
   const [searchedColumn, setSearchedColumn] = useState<string>("");
 
@@ -23,20 +23,20 @@ const Firmy = () => {
     setSearchedColumn
   );
 
-  const { loading, error, data } = useQuery(GET_COMPANIES);
+  const { loading, error, data } = useQuery(GET_LOCATIONS);
 
   const columns = [
     {
-      title: "Id",
-      dataIndex: "id",
-      key: "id",
-      ...getColumnSearchProp("id"),
+      title: "Sklep",
+      dataIndex: "adres",
+      key: "adres",
+      ...getColumnSearchProp("adres"),
     },
     {
       title: "Firma",
-      dataIndex: "company",
-      key: "company",
-      ...getColumnSearchProp("company"),
+      dataIndex: "firma",
+      key: "firma",
+      ...getColumnSearchProp("firma"),
     },
     {
       title: "Odnośnik ",
@@ -44,7 +44,7 @@ const Firmy = () => {
       key: "id",
       render: (text: string) => (
         <span>
-          <Link href={`/lista/firmy/[id]`} as={`/lista/firmy/${text}`}>
+          <Link href={`/lista/sklepy/[id]`} as={`/lista/sklepy/${text}`}>
             <a>Więcej&nbsp;&gt;</a>
           </Link>
         </span>
@@ -53,7 +53,7 @@ const Firmy = () => {
   ];
 
   if (loading) {
-    return <LoaderInDash selectedField={selectedField.LISTA_FIRMY} />;
+    return <LoaderInDash selectedField={selectedField.LISTA_ODDZIALY} />;
   }
 
   if (error) {
@@ -62,21 +62,21 @@ const Firmy = () => {
   }
 
   if (!loading) {
-    const dataSourcev2 = data.company.map((company: any) => ({
-      company: company.name,
-      id: company.id,
-      key: `${company.id}`,
+    const dataSourcev2 = data.location.map((location: any) => ({
+      firma: location.company.name,
+      adres: location.address,
+      id: location.id,
+      key: `${location.company.id}-${location.id}`,
     }));
 
-    console.log(dataSourcev2);
     return (
-      <LayoutM selectedField={selectedField.LISTA_FIRMY}>
-        <CardPanel>
-          <Title level={2}>Sieci</Title>
+      <LayoutM selectedField={selectedField.LISTA_ODDZIALY}>
+        <CardPanel style={{ maxWidth: "600px", width: "500px" }}>
+          <Title level={2}>Sklepy</Title>
           <Table dataSource={dataSourcev2} columns={columns} />
         </CardPanel>
       </LayoutM>
     );
   }
 };
-export default Firmy;
+export default Sklepy;

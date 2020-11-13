@@ -23,7 +23,7 @@ const Firme = () => {
   return (
     <LayoutM selectedField={selectedField.DODAJ_SKLEP}>
       <CardPanel>
-        <h1>Dodaj nową firmę</h1>
+        <h1>Dodaj nową sieć</h1>
         <FormFlex
           onSubmit={handleSubmit((args) => {
             const company = {
@@ -34,7 +34,7 @@ const Firme = () => {
             console.log("Wszystko git sprawdz baze");
           })}>
           <FormItem>
-            <label htmlFor="name">Nazwa firmy: </label>
+            <label htmlFor="name">Nazwa sieci: </label>
             <Controller
               name="name"
               id="name"
@@ -43,7 +43,7 @@ const Firme = () => {
               control={control}
               defaultValue={null}
               style={{ width: 200 }}
-              placeholder="Podaj nazwe firmy"
+              placeholder="Podaj nazwe sieci"
             />
           </FormItem>
           <FormItem style={{ display: "flex", justifyContent: "flex-end" }}>

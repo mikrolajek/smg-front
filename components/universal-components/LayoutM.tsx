@@ -13,6 +13,7 @@ import {
 import { useRouter } from "next/router";
 import { Typography } from "antd";
 import styled from "styled-components";
+import Image from "next/image";
 const { Title } = Typography;
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -53,19 +54,21 @@ const LayoutM = ({ children, selectedField }: IProps) => {
         <Sider collapsible collapsed={collapsed} onCollapse={handleOnCollapse}>
           <div
             style={{
+              display: "flex",
               height: "60px",
               color: "white",
-              textAlign: "center",
-              fontWeight: 800,
               alignItems: "center",
               justifyContent: "center",
-              verticalAlign: "middle",
-              marginTop: "10px",
+              paddingTop: "10px",
             }}
             className="logo">
-            <Title level={level} style={{ color: "white" }}>
-              Samsung
-            </Title>
+            {/* <Title level={level} style={{ color: "white" }}>
+              </Title> */}
+            <img
+              src="/logo/Samsung_wordmark.svg"
+              alt="samsung logo"
+              style={{ width: "100%", padding: "15px" }}
+            />
           </div>
           <StyledMenu
             selectedKeys={[`${selectedField}`]}
@@ -83,10 +86,10 @@ const LayoutM = ({ children, selectedField }: IProps) => {
                 <Link href="/dodaj/produkt">Produkt</Link>
               </Menu.Item>
               <Menu.Item key="4">
-                <Link href="/dodaj/oddzial">Sklep</Link>
+                <Link href="/dodaj/sklep">Sklep</Link>
               </Menu.Item>
               <Menu.Item key="5">
-                <Link href="/dodaj/firme">Sieć</Link>
+                <Link href="/dodaj/siec">Sieć</Link>
               </Menu.Item>
             </SubMenu>
             <SubMenu key="sub2" icon={<TeamOutlined />} title="Lista">
@@ -94,10 +97,10 @@ const LayoutM = ({ children, selectedField }: IProps) => {
                 <Link href="/lista/produkty">Produkty</Link>
               </Menu.Item>
               <Menu.Item key="7">
-                <Link href="/lista/oddzialy">Sklepy</Link>
+                <Link href="/lista/sklepy">Sklepy</Link>
               </Menu.Item>
               <Menu.Item key="8">
-                <Link href="/lista/firmy">Sieci</Link>
+                <Link href="/lista/sieci">Sieci</Link>
               </Menu.Item>
               <Menu.Item key="10">
                 <Link href="/lista/linki">Linki</Link>
@@ -127,7 +130,21 @@ const LayoutM = ({ children, selectedField }: IProps) => {
           </StyledMenu>
         </Sider>
         <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }} />
+          <Header
+            className="site-layout-background"
+            style={{
+              color: "white",
+              padding: "5px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end",
+            }}>
+            <img
+              src="/logo/savoir-logo.png"
+              alt="samsung logo"
+              style={{ height: "80%", marginRight: "40px" }}
+            />
+          </Header>
           <Content style={{ margin: "0 16px", backgroundColor: "fff" }}>
             <Breadcrumb style={{ margin: "16px 0" }}>
               {routePathSplit.map((path, index) => {

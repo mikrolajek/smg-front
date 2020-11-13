@@ -39,13 +39,13 @@ const Panel = () => {
             Icon={HomeOutlined}
             title="Sklepy"
             description="Lista wszystkich sklepów"
-            href="/lista/oddzialy"
+            href="/lista/sklepy"
           />
           <CardWithIcon
             Icon={BankOutlined}
             title="Sieci"
             description="Lista wszystkich sieci"
-            href="/lista/firmy"
+            href="/lista/sieci"
           />
           <CardWithIcon
             Icon={LinkOutlined}

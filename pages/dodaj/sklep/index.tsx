@@ -43,7 +43,7 @@ const Oddzial = () => {
     return (
       <LayoutM selectedField={selectedField.DODAJ_BRANCH}>
         <CardPanel>
-          <h1>Dodaj nowy oddział</h1>
+          <h1>Dodaj nowy sklep</h1>
           <FormFlex
             onSubmit={handleSubmit((args) => {
               const branch = {
@@ -65,7 +65,7 @@ const Oddzial = () => {
                 defaultValue={null}
                 showSearch
                 style={{ width: 200 }}
-                placeholder="Wybierz firmę"
+                placeholder="Wybierz sieć"
                 optionFilterProp="children"
               />
             </FormItem>

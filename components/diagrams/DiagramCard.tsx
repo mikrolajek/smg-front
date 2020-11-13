@@ -10,6 +10,11 @@ interface props {
   data: PieDatum[];
 }
 
+const theme: any = {
+  // fontSize: 14,
+  legends: { text: { fontSize: 14, fontWeight: "bold" } },
+};
+
 export const PieDiagramCard = ({ title, data }: props) => {
   return (
     <CardPanel>
@@ -19,6 +24,18 @@ export const PieDiagramCard = ({ title, data }: props) => {
       <BigBoxForDiagrams>
         <ResponsivePie
           colors={{ scheme: "paired" }}
+          slicesLabelsTextColor={"#000000"}
+          padAngle={1}
+          innerRadius={0.35}
+          cornerRadius={5}
+          theme={{
+            labels: {
+              text: {
+                fontSize: 14,
+                fontWeight: 600,
+              },
+            },
+          }}
           margin={{ top: 25, bottom: 25, right: 25, left: 25 }}
           data={data}
         />

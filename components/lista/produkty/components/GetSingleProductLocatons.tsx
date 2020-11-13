@@ -45,7 +45,7 @@ export const GetSingleProductLocations = ({
       key: "id",
       render: (text: string) => (
         <span>
-          <Link href={`/lista/oddzialy/[id]`} as={`/lista/oddzialy/${text}`}>
+          <Link href={`/lista/sklepy/[id]`} as={`/lista/sklepy/${text}`}>
             <a>Więcej&nbsp;&gt;</a>
           </Link>
         </span>
