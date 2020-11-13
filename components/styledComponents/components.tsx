@@ -5,12 +5,9 @@ export const CardPanel = styled.div`
   height: fit-content;
   padding: 35px 45px;
   border-radius: 5px;
-  max-width: 400px;
   margin: 10px;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  min-width: 150px;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
     0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06);
 `;

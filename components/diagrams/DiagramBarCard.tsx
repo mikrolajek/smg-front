@@ -18,12 +18,20 @@ export const BarDiagramCard = ({
   styleCardPanel,
 }: props) => {
   return (
-    <CardPanel style={{ maxWidth: "650px", ...style }}>
+    <CardPanel style={{ ...style }}>
       <Title level={4} style={{ alignSelf: "center" }}>
         {title}
       </Title>
       <BigBoxForDiagrams style={styleCardPanel}>
         <ResponsiveBar
+          theme={{
+            labels: {
+              text: {
+                fontSize: 14,
+                fontWeight: 600,
+              },
+            },
+          }}
           axisLeft={{
             format: (e: any) => Math.floor(e) === e && e,
           }}
@@ -37,8 +45,8 @@ export const BarDiagramCard = ({
 };
 
 const BigBoxForDiagrams = styled.div`
-  width: 600px;
-  height: 250px;
+  width: 100%;
+  height: 300px;
   display: flex;
   align-self: center;
 `;

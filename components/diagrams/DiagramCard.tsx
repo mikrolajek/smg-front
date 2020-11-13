@@ -17,7 +17,7 @@ const theme: any = {
 
 export const PieDiagramCard = ({ title, data }: props) => {
   return (
-    <CardPanel>
+    <CardPanel style={{ flex: 1 }}>
       <Title level={4} style={{ alignSelf: "center" }}>
         {title}
       </Title>
@@ -45,7 +45,7 @@ export const PieDiagramCard = ({ title, data }: props) => {
 };
 
 const BigBoxForDiagrams = styled.div`
-  width: 330px;
+  width: 350px;
   height: 250px;
   display: flex;
   align-self: center;

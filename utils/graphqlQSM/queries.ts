@@ -79,6 +79,15 @@ export const GET_PRODUCT_POPULARITY = gql`
   }
 `;
 
+export const GET_ALL_PRODUCT_POPULARITY = gql`
+  {
+    popularity: product_popularity {
+      count
+      type: name
+    }
+  }
+`;
+
 export const GET_COMPANY_ENGAGEMENT = gql`
   {
     popularity: company_engagement {
