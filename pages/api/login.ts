@@ -12,7 +12,8 @@ interface User {
 
 const authUsers: User[] = [
   { username: "admin", password: "SavGroup9711;", role: "admin" },
-  { username: "samsung", password: "SmsNG531$*", role: "admin" },
+  { username: "samsung", password: "QRsamsung2020", role: "admin" },
+  // { username: "samsung", password: "SmsNG531$*", role: "admin" },
 ];
 
 export const Login = (req: NextApiRequest, res: NextApiResponse) => {

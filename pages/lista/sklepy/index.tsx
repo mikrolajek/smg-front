@@ -33,7 +33,7 @@ const Sklepy = () => {
       ...getColumnSearchProp("adres"),
     },
     {
-      title: "Firma",
+      title: "Sieć",
       dataIndex: "firma",
       key: "firma",
       ...getColumnSearchProp("firma"),
