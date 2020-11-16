@@ -9,6 +9,7 @@ interface props {
   data: BarDatum[];
   style?: React.CSSProperties;
   styleCardPanel?: React.CSSProperties;
+  barProps?: any;
 }
 
 export const BarDiagramCard = ({
@@ -16,6 +17,7 @@ export const BarDiagramCard = ({
   data,
   style,
   styleCardPanel,
+  barProps,
 }: props) => {
   return (
     <CardPanel style={{ ...style }}>
@@ -24,6 +26,8 @@ export const BarDiagramCard = ({
       </Title>
       <BigBoxForDiagrams style={styleCardPanel}>
         <ResponsiveBar
+          {...barProps}
+          animate={false}
           theme={{
             labels: {
               text: {
@@ -45,7 +49,7 @@ export const BarDiagramCard = ({
 };
 
 const BigBoxForDiagrams = styled.div`
-  width: 100%;
+  min-width: 100%;
   height: 300px;
   display: flex;
   align-self: center;

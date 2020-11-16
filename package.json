@@ -20,6 +20,7 @@
     "@graphql-codegen/typescript-react-apollo": "^2.1.1",
     "@nivo/bar": "^0.63.1",
     "@nivo/pie": "^0.63.1",
+    "ant-design-pro": "^2.3.2",
     "antd": "^4.6.5",
     "axios": "^0.20.0",
     "cookie": "^0.4.1",

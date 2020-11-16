@@ -12,6 +12,7 @@ interface IDiagramComboProps {
   gqlQuery: DocumentNode;
   style?: React.CSSProperties;
   styleCardPanel?: React.CSSProperties;
+  barProps?: any;
 }
 
 export const DiagramComboBar = ({
@@ -19,6 +20,7 @@ export const DiagramComboBar = ({
   gqlQuery,
   style,
   styleCardPanel,
+  barProps,
 }: IDiagramComboProps) => {
   interface ITagPopularity {
     __typename: string;
@@ -43,7 +45,7 @@ export const DiagramComboBar = ({
       ];
     }
     const dataChartTagPop: PieDatum[] = data?.popularity.map((row) => ({
-      id: row.type,
+      id: row.type.split(";")[0],
       label: row.type,
       value: row.count,
     }));
@@ -63,6 +65,7 @@ export const DiagramComboBar = ({
     return (
       <>
         <BarDiagramCard
+          barProps={barProps}
           styleCardPanel={styleCardPanel}
           style={style}
           title={title}

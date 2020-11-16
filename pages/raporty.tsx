@@ -15,6 +15,7 @@ import styled from "styled-components";
 
 const Flex = styled.div`
   display: flex;
+  /* overflow: auto; */
   flex-flow: wrap;
   flex-wrap: wrap;
 `;
@@ -37,20 +38,22 @@ export const Raporty = () => {
             gqlQuery={GET_COMPANY_ENGAGEMENT}
           />
           <DiagramComboBar
-            style={{ flex: 3, minWidth: "fit-content" }}
-            // styleCardPanel={{ width: "100%" }}
+            style={{ flex: "3 3 800px" }}
+            styleCardPanel={{ minWidth: "800px" }}
             title={"Popularność sklepów"}
+            barProps={{ axisBottom: null }}
             gqlQuery={GET_LOCATION_ENGAGEMENT}
           />
           <DiagramComboBar
-            style={{ flex: 2, minWidth: "fit-content" }}
-            // styleCardPanel={{ width: "100%" }}
+            style={{ flex: "3 3 600px" }}
+            styleCardPanel={{ minWidth: "600px" }}
             title={"Popularność produktów top 5"}
             gqlQuery={GET_PRODUCT_POPULARITY}
           />
           <DiagramComboBar
-            styleCardPanel={{ width: "100%" }}
-            style={{ flex: 5, minWidth: "fit-content" }}
+            styleCardPanel={{ minWidth: "800px" }}
+            barProps={{ axisBottom: null }}
+            style={{ flex: "5 5 800px", overflow: "auto" }}
             title={"Popularność produktów wszystkie"}
             gqlQuery={GET_ALL_PRODUCT_POPULARITY}
           />

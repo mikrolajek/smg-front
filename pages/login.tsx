@@ -69,7 +69,7 @@ const Login = () => {
         <title>Login</title>
       </Head>
       <CenterContent>
-        <CardPanel style={{ height: "fit-content" }}>
+        <CardPanel style={{ height: "fit-content", width: "400px" }}>
           <h1>Logowanie</h1>
           <FormFlex
             onSubmit={handleSubmit(async (args: Inputs) => {

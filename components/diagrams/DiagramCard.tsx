@@ -17,7 +17,7 @@ const theme: any = {
 
 export const PieDiagramCard = ({ title, data }: props) => {
   return (
-    <CardPanel style={{ flex: 1 }}>
+    <CardPanel style={{ flex: "1 1 100px" }}>
       <Title level={4} style={{ alignSelf: "center" }}>
         {title}
       </Title>
