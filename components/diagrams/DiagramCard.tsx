@@ -10,11 +10,6 @@ interface props {
   data: PieDatum[];
 }
 
-const theme: any = {
-  // fontSize: 14,
-  legends: { text: { fontSize: 14, fontWeight: "bold" } },
-};
-
 export const PieDiagramCard = ({ title, data }: props) => {
   return (
     <CardPanel style={{ flex: "1 1 100px" }}>

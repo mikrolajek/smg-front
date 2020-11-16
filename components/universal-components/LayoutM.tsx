@@ -11,10 +11,10 @@ import {
   LogoutOutlined,
 } from "@ant-design/icons";
 import { useRouter } from "next/router";
-import { Typography } from "antd";
+// import { Typography } from "antd";
 import styled from "styled-components";
-import Image from "next/image";
-const { Title } = Typography;
+// import Image from "next/image";
+// const { Title } = Typography;
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
