@@ -125,6 +125,14 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
     //   return { ...appProps };
     // }
     if (!(asPath == "/login")) {
+      if (asPath == "/") {
+        res?.writeHead(301, {
+          Location: "/login",
+        });
+        res?.end();
+        return { ...appProps };
+      }
+
       if (!cookieToken) {
         res?.writeHead(301, {
           Location: "/login",
