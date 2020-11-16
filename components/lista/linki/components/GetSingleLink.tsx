@@ -57,7 +57,7 @@ export const GetSingleLink = ({ id, title }: IGetSingleLinkProps) => {
   // data.link_by_pk.url
 
   return (
-    <CardPanel style={{ height: "350px" }}>
+    <CardPanel style={{ height: "350px", width: "300px" }}>
       <Title level={4}>{title} </Title>
       <span>
         <a href={data.link_by_pk.url}>{data.link_by_pk.url}</a>

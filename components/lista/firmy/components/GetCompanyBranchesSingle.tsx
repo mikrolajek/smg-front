@@ -67,7 +67,7 @@ export const GetCompanyBranchesSingle = ({ id, title }: IProps) => {
   }));
 
   return (
-    <CardPanel style={{ maxWidth: " 700px" }}>
+    <CardPanel style={{ maxWidth: " 700px", height: "fit-content" }}>
       <Title level={2}>{title}</Title>
       <Table dataSource={ds} columns={columns} />
     </CardPanel>

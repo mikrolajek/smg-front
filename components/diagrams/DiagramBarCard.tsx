@@ -26,7 +26,6 @@ export const BarDiagramCard = ({
       </Title>
       <BigBoxForDiagrams style={styleCardPanel}>
         <ResponsiveBar
-          {...barProps}
           animate={false}
           theme={{
             labels: {
@@ -42,6 +41,7 @@ export const BarDiagramCard = ({
           colors={{ scheme: "paired" }}
           margin={{ top: 25, bottom: 25, right: 25, left: 25 }}
           data={data}
+          {...barProps}
         />
       </BigBoxForDiagrams>
     </CardPanel>
@@ -50,7 +50,7 @@ export const BarDiagramCard = ({
 
 const BigBoxForDiagrams = styled.div`
   min-width: 100%;
-  height: 300px;
+  height: 350px;
   display: flex;
   align-self: center;
 `;
