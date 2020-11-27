@@ -61,9 +61,32 @@ export const GET_TAG_POPULARITY = gql`
   }
 `;
 
+export const GET_TAG_POPULARITY_WITH_DATES = gql`
+  query TagtPopularityWithDatesTop5($fromDate: date!, $toDate: date!) {
+    popularity: tag_popularity_with_dates(
+      args: { fromdate: $fromDate, todate: $toDate }
+      limit: 5
+    ) {
+      count
+      type
+    }
+  }
+`;
+
 export const GET_PHONE_POPULARITY = gql`
   {
     popularity: phone_popularity {
+      count
+      type: device_type
+    }
+  }
+`;
+
+export const GET_PHONE_POPULARITY_WITH_DATES = gql`
+  query PhonePopularityWithDates($fromDate: date!, $toDate: date!) {
+    popularity: phone_popularity_with_dates(
+      args: { fromdate: $fromDate, todate: $toDate }
+    ) {
       count
       type: device_type
     }
@@ -88,9 +111,43 @@ export const GET_ALL_PRODUCT_POPULARITY = gql`
   }
 `;
 
+export const GET_PRODUCT_POPULARITY_WITH_DATES = gql`
+  query ProductPopularityWithDates($fromDate: date!, $toDate: date!) {
+    popularity: product_popularity_with_dates(
+      args: { fromdate: $fromDate, todate: $toDate }
+    ) {
+      count
+      type: name
+    }
+  }
+`;
+
+export const GET_PRODUCT_POPULARITY_WITH_DATES_TOP_FIVE = gql`
+  query ProductPopularityWithDatesTop5($fromDate: date!, $toDate: date!) {
+    popularity: product_popularity_with_dates(
+      args: { fromdate: $fromDate, todate: $toDate }
+      limit: 5
+    ) {
+      count
+      type: name
+    }
+  }
+`;
+
 export const GET_COMPANY_ENGAGEMENT = gql`
   {
     popularity: company_engagement {
+      count
+      type: company_name
+    }
+  }
+`;
+
+export const GET_COMPANY_ENGAGEMENT_WITH_DATES = gql`
+  query CompanyEngagementWithDates($fromDate: date!, $toDate: date!) {
+    popularity: company_engagement_with_dates(
+      args: { fromdate: $fromDate, todate: $toDate }
+    ) {
       count
       type: company_name
     }
@@ -102,6 +159,18 @@ export const GET_LOCATION_ENGAGEMENT = gql`
     popularity: location_engagement {
       company_name
       type: address
+      count
+    }
+  }
+`;
+
+export const GET_LOCATION_ENGAGEMENT_WITH_DATES = gql`
+  query LocationEngagementWithDates($fromDate: date!, $toDate: date!) {
+    popularity: location_engagement_with_dates(
+      args: { fromdate: $fromDate, todate: $toDate }
+    ) {
+      type: address
+      company_name
       count
     }
   }

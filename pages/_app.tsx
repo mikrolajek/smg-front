@@ -114,16 +114,6 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
     const cookieToken: string = cookies.get("token");
     console.log("Bearer ", cookieToken);
 
-    // console.log("COOKIES TOKEN", cookieToken);
-    // try {
-    //   jwt.verify(cookieToken, secret);
-    // } catch (err) {
-    //   res?.writeHead(301, {
-    //     Location: "/login",
-    //   });
-    //   res?.end();
-    //   return { ...appProps };
-    // }
     if (!(asPath == "/login")) {
       if (asPath == "/") {
         res?.writeHead(301, {

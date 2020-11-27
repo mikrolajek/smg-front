@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { PieDatum } from "@nivo/pie";
 // import { Typography } from "antd";
+// const { Title } = Typography;
+import { useRouter } from "next/router";
 import { DocumentNode, useQuery } from "@apollo/client";
 import { LoaderNoDash } from "../universal-components/Loaders";
 import { BarDiagramCard } from "./DiagramBarCard";
-import { useRouter } from "next/router";
-// const { Title } = Typography;
 
 interface IDiagramComboProps {
   title: string;
@@ -13,6 +13,7 @@ interface IDiagramComboProps {
   style?: React.CSSProperties;
   styleCardPanel?: React.CSSProperties;
   barProps?: any;
+  dates: string[];
 }
 
 export const DiagramComboBar = ({
@@ -21,6 +22,7 @@ export const DiagramComboBar = ({
   style,
   styleCardPanel,
   barProps,
+  dates,
 }: IDiagramComboProps) => {
   interface ITagPopularity {
     __typename: string;
@@ -31,7 +33,13 @@ export const DiagramComboBar = ({
     popularity: ITagPopularity[];
   };
 
-  const { loading, data, error } = useQuery<tagPop>(gqlQuery);
+  const { loading, data, error, refetch } = useQuery<tagPop>(gqlQuery, {
+    variables: { fromDate: dates[0], toDate: dates[1] },
+  });
+
+  useEffect(() => {
+    refetch();
+  }, [dates]);
 
   const fillData = (data: tagPop | undefined) => {
     if (data === undefined) {
@@ -56,6 +64,7 @@ export const DiagramComboBar = ({
   if (loading) {
     return <LoaderNoDash />;
   }
+
   if (error) {
     const router = useRouter();
     router.push("/login");
