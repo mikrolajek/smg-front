@@ -1,7 +1,7 @@
 import React from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import LayoutM from "../../../components/universal-components/LayoutM";
-import { Select, Button, Spin, Input } from "antd";
+import { Select, Button, Spin, Input, message } from "antd";
 import selectedField from "../../../utils/selectedPanel";
 import { GET_COMPANIES } from "../../../utils/graphqlQSM/queries";
 import { useRouter } from "next/router";
@@ -13,6 +13,10 @@ import {
   FormFlex,
   FormItem,
 } from "../../../components/styledComponents/components";
+
+const success = () => {
+  message.success("Dodano sklep do bazy!");
+};
 
 const Oddzial = () => {
   const { control, handleSubmit } = useForm();
@@ -52,7 +56,9 @@ const Oddzial = () => {
               };
               addBranch({ variables: { location: branch } });
               console.log("Wszystko git sprawdz baze");
-            })}>
+              success();
+            })}
+          >
             <FormItem>
               <label htmlFor="id_company">Firma: </label>
               <Controller

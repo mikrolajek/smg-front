@@ -1,7 +1,7 @@
 import React from "react";
 import { useMutation } from "@apollo/client";
 import LayoutM from "../../../components/universal-components/LayoutM";
-import { Button, Input } from "antd";
+import { Button, Input, message } from "antd";
 import selectedField from "../../../utils/selectedPanel";
 // import { GET_COMPANIES } from "../../../utils/graphqlQSM/queries";
 // import { useRouter } from "next/router";
@@ -13,6 +13,10 @@ import {
   FormFlex,
   FormItem,
 } from "../../../components/styledComponents/components";
+
+const success = () => {
+  message.success("Dodano sieć do bazy!");
+};
 
 const Firme = () => {
   const { control, handleSubmit } = useForm();
@@ -32,7 +36,9 @@ const Firme = () => {
             console.log(company);
             addCompany({ variables: { company: company } });
             console.log("Wszystko git sprawdz baze");
-          })}>
+            success();
+          })}
+        >
           <FormItem>
             <label htmlFor="name">Nazwa sieci: </label>
             <Controller

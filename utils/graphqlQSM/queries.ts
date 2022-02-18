@@ -370,3 +370,52 @@ export const GET_SINGLE_COMPANY_LOCATIONS = gql`
     }
   }
 `;
+
+export const GET_CODES = gql`
+{
+  code {
+    id
+    uid
+    type
+  }
+}
+`;
+
+export const GET_SINGLE_CODE = gql`
+  query SingleCode($id: Int!) {
+    code_by_pk(id: $id) {
+      id
+      type
+      uid
+    }
+  }
+`;
+
+export const GET_SINGLE_CODE_PRODUCT = gql`
+  query SingleCodeProduct($id: Int!) {
+    code_by_pk(id: $id) {
+      groups {
+        product {
+          id
+          name
+        }
+      }
+    }
+  }
+`;
+
+export const GET_SINGLE_CODE_LOCATIONS = gql`
+  query SingleCodeLocations($id: Int!) {
+    code_by_pk(id: $id) {
+      groups {
+        location {
+          id
+          address
+          company {
+            name
+          }
+        }
+      }
+    }
+  }
+`;

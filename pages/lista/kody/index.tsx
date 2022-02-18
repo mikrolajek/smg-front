@@ -3,16 +3,16 @@ import { useQuery } from "@apollo/client";
 import LayoutM from "../../../components/universal-components/LayoutM";
 import { Table } from "antd";
 import selectedField from "../../../utils/selectedPanel";
-import { CardPanel } from "../../../components/styledComponents/components";
+import { GET_CODES } from "../../../utils/graphqlQSM/queries";
 import { useRouter } from "next/router";
-import { GET_COMPANIES } from "../../../utils/graphqlQSM/queries";
+import { CardPanel } from "../../../components/styledComponents/components";
 import { LoaderInDash } from "../../../components/universal-components/Loaders";
-import getColumnSearchProps from "../../../utils/GetColumnsSearchProps";
 import Link from "next/link";
+import getColumnSearchProps from "../../../utils/GetColumnsSearchProps";
 import { Typography } from "antd";
 const { Title } = Typography;
 
-const Sieci = () => {
+const Kody = () => {
   const [searchText, setSearchText] = useState<string>("");
   const [searchedColumn, setSearchedColumn] = useState<string>("");
 
@@ -23,20 +23,26 @@ const Sieci = () => {
     setSearchedColumn
   );
 
-  const { loading, error, data } = useQuery(GET_COMPANIES);
+  const { loading, error, data } = useQuery(GET_CODES);
 
   const columns = [
     {
-      title: "Id",
+      title: "ID",
       dataIndex: "id",
       key: "id",
       ...getColumnSearchProp("id"),
     },
     {
-      title: "Sieć",
-      dataIndex: "company",
-      key: "company",
-      ...getColumnSearchProp("company"),
+      title: "Kod",
+      dataIndex: "uid",
+      key: "uid",
+      ...getColumnSearchProp("uid"),
+    },
+    {
+      title: "Typ",
+      dataIndex: "type",
+      key: "type",
+      ...getColumnSearchProp("type"),
     },
     {
       title: "Odnośnik ",
@@ -44,7 +50,7 @@ const Sieci = () => {
       key: "id",
       render: (text: string) => (
         <span>
-          <Link href={`/lista/sieci/[id]`} as={`/lista/sieci/${text}`}>
+          <Link href={`/lista/kody/[id]`} as={`/lista/kody/${text}`}>
             <a>Więcej&nbsp;&gt;</a>
           </Link>
         </span>
@@ -53,7 +59,7 @@ const Sieci = () => {
   ];
 
   if (loading) {
-    return <LoaderInDash selectedField={selectedField.LISTA_FIRMY} />;
+    return <LoaderInDash selectedField={selectedField.LISTA_KODY} />;
   }
 
   if (error) {
@@ -62,21 +68,21 @@ const Sieci = () => {
   }
 
   if (!loading) {
-    const dataSourcev2 = data?.company?.map((company: any) => ({
-      company: company.name,
-      id: company.id,
-      key: `${company.id}`,
+    const dataSourcev2 = data.code.map((code: any) => ({
+      uid: code.uid,
+      type: code.type,
+      id: code.id,
+      key: `${code.id}-${code.id}`,
     }));
 
-    console.log(dataSourcev2);
     return (
-      <LayoutM selectedField={selectedField.LISTA_FIRMY}>
-        <CardPanel>
-          <Title level={2}>Sieci</Title>
+      <LayoutM selectedField={selectedField.LISTA_KODY}>
+        <CardPanel style={{ maxWidth: "600px", width: "500px" }}>
+          <Title level={2}>Kody</Title>
           <Table dataSource={dataSourcev2} columns={columns} />
         </CardPanel>
       </LayoutM>
     );
   }
 };
-export default Sieci;
+export default Kody;

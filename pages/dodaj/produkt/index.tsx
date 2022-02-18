@@ -1,7 +1,7 @@
 import React from "react";
-import { useMutation, useQuery } from "@apollo/client";
+import { resetApolloContext, useMutation, useQuery } from "@apollo/client";
 import LayoutM from "../../../components/universal-components/LayoutM";
-import { Button, Spin, Input } from "antd";
+import { Button, Spin, Input, message } from "antd";
 import selectedField from "../../../utils/selectedPanel";
 import { GET_COMPANIES } from "../../../utils/graphqlQSM/queries";
 import { useRouter } from "next/router";
@@ -13,6 +13,10 @@ import {
   FormFlex,
   FormItem,
 } from "../../../components/styledComponents/components";
+
+const success = () => {
+  message.success("Dodano produkt do bazy!");
+};
 
 const Produkt = () => {
   const { control, handleSubmit } = useForm();
@@ -48,7 +52,10 @@ const Produkt = () => {
               console.log(product);
               addProduct({ variables: { product: product } });
               console.log("Wszystko git sprawdz baze");
-            })}>
+
+              success();
+            })}
+          >
             <FormItem>
               <label htmlFor="name">Nazwa produktu: </label>
               <Controller

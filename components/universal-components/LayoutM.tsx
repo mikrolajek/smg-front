@@ -48,6 +48,7 @@ const LayoutM = ({ children, selectedField }: IProps) => {
     setCollapsed(!collapsed);
     setLevel(level == 1 ? 5 : 1);
   };
+
   return (
     <>
       <Layout style={{ minHeight: "100vh" }}>
@@ -61,7 +62,8 @@ const LayoutM = ({ children, selectedField }: IProps) => {
               justifyContent: "center",
               paddingTop: "10px",
             }}
-            className="logo">
+            className="logo"
+          >
             {/* <Title level={level} style={{ color: "white" }}>
               </Title> */}
             <img
@@ -74,7 +76,8 @@ const LayoutM = ({ children, selectedField }: IProps) => {
             selectedKeys={[`${selectedField}`]}
             theme="dark"
             defaultSelectedKeys={[`${selectedField}`]}
-            mode="inline">
+            mode="inline"
+          >
             {/* <Menu.Item key="1" icon={<DesktopOutlined />}>
               <Link href="/">Zarządzaj</Link>
             </Menu.Item> */}
@@ -105,6 +108,9 @@ const LayoutM = ({ children, selectedField }: IProps) => {
               <Menu.Item key="10">
                 <Link href="/lista/linki">Linki</Link>
               </Menu.Item>
+              <Menu.Item key="11">
+                <Link href="/lista/kody">Kody</Link>
+              </Menu.Item>
             </SubMenu>
 
             <Menu.Item key="2" icon={<PieChartOutlined />}>
@@ -124,7 +130,8 @@ const LayoutM = ({ children, selectedField }: IProps) => {
                 localStorage.removeItem("token");
                 console.log("PO", Cookie.get("token"));
                 console.log("PO localStorage", localStorage.getItem("token"));
-              }}>
+              }}
+            >
               <Link href="/login">Wyloguj</Link>
             </Menu.Item>
           </StyledMenu>
@@ -138,7 +145,8 @@ const LayoutM = ({ children, selectedField }: IProps) => {
               display: "flex",
               alignItems: "center",
               justifyContent: "flex-end",
-            }}>
+            }}
+          >
             <img
               src="/logo/savoir-logo.png"
               alt="samsung logo"
@@ -162,7 +170,9 @@ const LayoutM = ({ children, selectedField }: IProps) => {
               {children}
             </div>
           </Content>
-          <Footer style={{ textAlign: "center" }}>Savoir Group</Footer>
+          <Footer style={{ textAlign: "center", fontWeight: "lighter" }}>
+            SAVOIR Group sp. z o.o., {new Date().getFullYear()}
+          </Footer>
         </Layout>
       </Layout>
     </>

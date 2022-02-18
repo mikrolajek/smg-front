@@ -1,7 +1,7 @@
+import React from "react";
 import LayoutM from "../components/universal-components/LayoutM";
 import CardWithIcon from "../components/universal-components/CardWithIcon";
 import { HomeOutlined, TagOutlined, BankOutlined } from "@ant-design/icons";
-import React from "react";
 // import { CardPanel } from "../components/styledComponents/components";
 import { Typography } from "antd";
 const { Title } = Typography;
@@ -11,7 +11,8 @@ export const Dodaj = () => {
     <LayoutM selectedField={9}>
       <Title
         level={1}
-        style={{ justifySelf: "center", width: "100%", textAlign: "center" }}>
+        style={{ justifySelf: "center", width: "100%", textAlign: "center" }}
+      >
         Dodaj
       </Title>
       <div
@@ -24,7 +25,8 @@ export const Dodaj = () => {
           justifyItems: "center",
           alignItems: "center",
           justifyContent: "center",
-        }}>
+        }}
+      >
         <CardWithIcon
           Icon={TagOutlined}
           title="Dodaj Produkt"
@@ -33,12 +35,12 @@ export const Dodaj = () => {
         <CardWithIcon
           Icon={HomeOutlined}
           title="Dodaj Sklep"
-          href="/dodaj/oddzial"
+          href="/dodaj/sklep"
         />
         <CardWithIcon
           Icon={BankOutlined}
           title="Dodaj Sieć"
-          href="/dodaj/firme"
+          href="/dodaj/siec"
         />
       </div>
     </LayoutM>

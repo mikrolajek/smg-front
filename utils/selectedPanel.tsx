@@ -7,6 +7,7 @@ export enum SelectedPanel {
   LISTA_FIRMY = 8,
   LISTA_LINKI = 10,
   RAPORTY = 2,
+  LISTA_KODY = 11,
 }
 
 export default SelectedPanel;

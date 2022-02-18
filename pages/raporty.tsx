@@ -76,11 +76,11 @@ export const Raporty = () => {
             gqlQuery={GET_PHONE_POPULARITY_WITH_DATES}
             dates={dates}
           />
-          <DiagramCombo
+          {/* <DiagramCombo
             title={"Popularność tagów nfc/qr"}
             gqlQuery={GET_PHONE_POPULARITY_WITH_DATES}
             dates={dates}
-          />
+          /> */}
 
           <DiagramCombo
             title={"Ilość użytych kodów w danej sieci"}
